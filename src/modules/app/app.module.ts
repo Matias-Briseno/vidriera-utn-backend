@@ -2,10 +2,11 @@ import { Module } from '@nestjs/common';
 import { createObserveModule } from '@nestjs/observe';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
-import { UsersModule } from './users/users.module.js';
-import { AuthModule } from './auth/auth.module.js';
-import { TecnicaturasModule } from './tecnicaturas/tecnicaturas.module.js';
-import { TesisModule } from './tesis/tesis.module.js';
+import { UsersModule } from '../users/users.module.js';
+import { AuthModule } from '../auth/auth.module.js';
+import { TecnicaturasModule } from '../tecnicaturas/tecnicaturas.module.js';
+import { TesisModule } from '../tesis/tesis.module.js';
+import { PrismaModule } from '../prisma/prisma.module.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -23,6 +24,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
     AuthModule,
     TecnicaturasModule,
     TesisModule,
+    PrismaModule,
   ],
   controllers: [AppController],
   providers: [AppService],

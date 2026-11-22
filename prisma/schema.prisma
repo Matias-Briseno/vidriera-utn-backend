@@ -1,13 +1,88 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+model personas {
+  id                  Int                   @id @default(autoincrement())
+  nombre_completo     String                @db.VarChar(150)
+  foto_url            String?
+  tesis_participantes tesis_participantes[]
+
+  @@unique([nombre_completo, foto_url], map: "uq_persona_nombre_foto")
+}
+
+model tecnicaturas {
+  id          Int     @id
+  nombre      String  @unique @db.VarChar(150)
+  descripcion String
+  imagen_url  String
+  tesis       tesis[]
+  users       users[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model tesis {
+  id                   Int                   @id
+  tecnicatura_id       Int
+  titulo               String                @db.VarChar(255)
+  anio                 Int
+  tema                 String                @db.VarChar(120)
+  resumen              String
+  vistas               Int                   @default(0)
+  fecha_publicacion    DateTime              @db.Date
+  miniatura_url        String
+  imagen_principal_url String
+  url_pdf              String?
+  url_video            String?
+  url_github           String?
+  url_youtube          String?
+  tecnicaturas         tecnicaturas          @relation(fields: [tecnicatura_id], references: [id], map: "fk_tesis_tecnicatura")
+  tesis_galeria        tesis_galeria[]
+  tesis_participantes  tesis_participantes[]
+
+  @@index([tecnicatura_id], map: "idx_tesis_tecnicatura_id")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model tesis_galeria {
+  id         Int    @id @default(autoincrement())
+  tesis_id   Int
+  imagen_url String
+  orden      Int    @default(1)
+  tesis      tesis  @relation(fields: [tesis_id], references: [id], onDelete: Cascade, map: "fk_galeria_tesis")
+
+  @@unique([tesis_id, orden], map: "uq_galeria_tesis_orden")
+  @@index([tesis_id], map: "idx_galeria_tesis_id")
+}
+
+model tesis_participantes {
+  tesis_id          Int
+  persona_id        Int
+  rol_participacion String   @default("integrante") @db.VarChar(30)
+  personas          personas @relation(fields: [persona_id], references: [id], map: "fk_tp_persona")
+  tesis             tesis    @relation(fields: [tesis_id], references: [id], onDelete: Cascade, map: "fk_tp_tesis")
+
+  @@id([tesis_id, persona_id], map: "pk_tesis_participantes")
+  @@index([persona_id], map: "idx_tp_persona_id")
+}
+
+model users {
+  id                  Int          @id @default(autoincrement())
+  nombre              String       @db.VarChar(100)
+  apellido            String       @db.VarChar(100)
+  nro_legajo          String       @unique @db.VarChar(30)
+  email               String       @unique @db.VarChar(150)
+  tecnicatura_id      Int
+  condicion_academica String       @db.VarChar(50)
+  password_hash       String
+  rol                 String       @default("estudiante") @db.VarChar(30)
+  created_at          DateTime     @default(now()) @db.Timestamp(6)
+  tecnicaturas        tecnicaturas @relation(fields: [tecnicatura_id], references: [id], map: "fk_users_tecnicatura")
+
+  @@index([tecnicatura_id], map: "idx_users_tecnicatura_id")
 }
