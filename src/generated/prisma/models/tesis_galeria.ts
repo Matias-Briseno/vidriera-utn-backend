@@ -14,7 +14,7 @@ import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
  * Model tesis_galeria
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * 
  */
 export type tesis_galeriaModel = runtime.Types.Result.DefaultSelection<Prisma.$tesis_galeriaPayload>
 

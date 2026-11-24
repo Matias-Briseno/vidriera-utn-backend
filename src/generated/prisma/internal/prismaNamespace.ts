@@ -397,12 +397,11 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  personas: 'personas',
   tecnicaturas: 'tecnicaturas',
+  users: 'users',
   tesis: 'tesis',
   tesis_galeria: 'tesis_galeria',
-  tesis_participantes: 'tesis_participantes',
-  users: 'users'
+  tesis_participantes: 'tesis_participantes'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -418,84 +417,10 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "personas" | "tecnicaturas" | "tesis" | "tesis_galeria" | "tesis_participantes" | "users"
+    modelProps: "tecnicaturas" | "users" | "tesis" | "tesis_galeria" | "tesis_participantes"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
-    personas: {
-      payload: Prisma.$personasPayload<ExtArgs>
-      fields: Prisma.personasFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.personasFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.personasFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload>
-        }
-        findFirst: {
-          args: Prisma.personasFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.personasFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload>
-        }
-        findMany: {
-          args: Prisma.personasFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload>[]
-        }
-        create: {
-          args: Prisma.personasCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload>
-        }
-        createMany: {
-          args: Prisma.personasCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.personasCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload>[]
-        }
-        delete: {
-          args: Prisma.personasDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload>
-        }
-        update: {
-          args: Prisma.personasUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload>
-        }
-        deleteMany: {
-          args: Prisma.personasDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.personasUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.personasUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload>[]
-        }
-        upsert: {
-          args: Prisma.personasUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$personasPayload>
-        }
-        aggregate: {
-          args: Prisma.PersonasAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregatePersonas>
-        }
-        groupBy: {
-          args: Prisma.personasGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PersonasGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.personasCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PersonasCountAggregateOutputType> | number
-        }
-      }
-    }
     tecnicaturas: {
       payload: Prisma.$tecnicaturasPayload<ExtArgs>
       fields: Prisma.tecnicaturasFieldRefs
@@ -567,6 +492,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.tecnicaturasCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.TecnicaturasCountAggregateOutputType> | number
+        }
+      }
+    }
+    users: {
+      payload: Prisma.$usersPayload<ExtArgs>
+      fields: Prisma.usersFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.usersFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.usersFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        findFirst: {
+          args: Prisma.usersFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.usersFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        findMany: {
+          args: Prisma.usersFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>[]
+        }
+        create: {
+          args: Prisma.usersCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        createMany: {
+          args: Prisma.usersCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.usersCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>[]
+        }
+        delete: {
+          args: Prisma.usersDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        update: {
+          args: Prisma.usersUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        deleteMany: {
+          args: Prisma.usersDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.usersUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.usersUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>[]
+        }
+        upsert: {
+          args: Prisma.usersUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        aggregate: {
+          args: Prisma.UsersAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUsers>
+        }
+        groupBy: {
+          args: Prisma.usersGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UsersGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.usersCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UsersCountAggregateOutputType> | number
         }
       }
     }
@@ -792,80 +791,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    users: {
-      payload: Prisma.$usersPayload<ExtArgs>
-      fields: Prisma.usersFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.usersFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.usersFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
-        }
-        findFirst: {
-          args: Prisma.usersFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.usersFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
-        }
-        findMany: {
-          args: Prisma.usersFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>[]
-        }
-        create: {
-          args: Prisma.usersCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
-        }
-        createMany: {
-          args: Prisma.usersCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.usersCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>[]
-        }
-        delete: {
-          args: Prisma.usersDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
-        }
-        update: {
-          args: Prisma.usersUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
-        }
-        deleteMany: {
-          args: Prisma.usersDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.usersUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.usersUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>[]
-        }
-        upsert: {
-          args: Prisma.usersUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
-        }
-        aggregate: {
-          args: Prisma.UsersAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateUsers>
-        }
-        groupBy: {
-          args: Prisma.usersGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UsersGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.usersCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UsersCountAggregateOutputType> | number
-        }
-      }
-    }
   }
 } & {
   other: {
@@ -905,15 +830,6 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const PersonasScalarFieldEnum = {
-  id: 'id',
-  nombre_completo: 'nombre_completo',
-  foto_url: 'foto_url'
-} as const
-
-export type PersonasScalarFieldEnum = (typeof PersonasScalarFieldEnum)[keyof typeof PersonasScalarFieldEnum]
-
-
 export const TecnicaturasScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre',
@@ -924,13 +840,30 @@ export const TecnicaturasScalarFieldEnum = {
 export type TecnicaturasScalarFieldEnum = (typeof TecnicaturasScalarFieldEnum)[keyof typeof TecnicaturasScalarFieldEnum]
 
 
+export const UsersScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre',
+  apellido: 'apellido',
+  foto_url: 'foto_url',
+  nro_legajo: 'nro_legajo',
+  email: 'email',
+  password_hash: 'password_hash',
+  tecnicatura_id: 'tecnicatura_id',
+  condicion_academica: 'condicion_academica',
+  rol: 'rol',
+  created_at: 'created_at'
+} as const
+
+export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+
+
 export const TesisScalarFieldEnum = {
   id: 'id',
   tecnicatura_id: 'tecnicatura_id',
   titulo: 'titulo',
-  anio: 'anio',
   tema: 'tema',
   resumen: 'resumen',
+  estado: 'estado',
   vistas: 'vistas',
   fecha_publicacion: 'fecha_publicacion',
   miniatura_url: 'miniatura_url',
@@ -956,27 +889,11 @@ export type Tesis_galeriaScalarFieldEnum = (typeof Tesis_galeriaScalarFieldEnum)
 
 export const Tesis_participantesScalarFieldEnum = {
   tesis_id: 'tesis_id',
-  persona_id: 'persona_id',
+  user_id: 'user_id',
   rol_participacion: 'rol_participacion'
 } as const
 
 export type Tesis_participantesScalarFieldEnum = (typeof Tesis_participantesScalarFieldEnum)[keyof typeof Tesis_participantesScalarFieldEnum]
-
-
-export const UsersScalarFieldEnum = {
-  id: 'id',
-  nombre: 'nombre',
-  apellido: 'apellido',
-  nro_legajo: 'nro_legajo',
-  email: 'email',
-  tecnicatura_id: 'tecnicatura_id',
-  condicion_academica: 'condicion_academica',
-  password_hash: 'password_hash',
-  rol: 'rol',
-  created_at: 'created_at'
-} as const
-
-export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1038,6 +955,34 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
+ * Reference to a field of type 'condicion_academica'
+ */
+export type Enumcondicion_academicaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'condicion_academica'>
+    
+
+
+/**
+ * Reference to a field of type 'condicion_academica[]'
+ */
+export type ListEnumcondicion_academicaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'condicion_academica[]'>
+    
+
+
+/**
+ * Reference to a field of type 'rol_usuario'
+ */
+export type Enumrol_usuarioFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'rol_usuario'>
+    
+
+
+/**
+ * Reference to a field of type 'rol_usuario[]'
+ */
+export type ListEnumrol_usuarioFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'rol_usuario[]'>
+    
+
+
+/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -1048,6 +993,34 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'estado_tesis'
+ */
+export type Enumestado_tesisFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'estado_tesis'>
+    
+
+
+/**
+ * Reference to a field of type 'estado_tesis[]'
+ */
+export type ListEnumestado_tesisFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'estado_tesis[]'>
+    
+
+
+/**
+ * Reference to a field of type 'rol_participacion'
+ */
+export type Enumrol_participacionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'rol_participacion'>
+    
+
+
+/**
+ * Reference to a field of type 'rol_participacion[]'
+ */
+export type ListEnumrol_participacionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'rol_participacion[]'>
     
 
 
@@ -1215,12 +1188,11 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
  */
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
-  personas?: Prisma.personasOmit
   tecnicaturas?: Prisma.tecnicaturasOmit
+  users?: Prisma.usersOmit
   tesis?: Prisma.tesisOmit
   tesis_galeria?: Prisma.tesis_galeriaOmit
   tesis_participantes?: Prisma.tesis_participantesOmit
-  users?: Prisma.usersOmit
 }
 
 /* Types for Logging */
