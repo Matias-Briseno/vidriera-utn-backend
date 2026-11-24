@@ -9,7 +9,37 @@
 * 🟢 You can import this file directly.
 */
 
+export const rol_usuario = {
+  estudiante: 'estudiante',
+  docente: 'docente',
+  bedelia: 'bedelia',
+  directivo: 'directivo'
+} as const
+
+export type rol_usuario = (typeof rol_usuario)[keyof typeof rol_usuario]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const condicion_academica = {
+  alumno: 'alumno',
+  egresado: 'egresado'
+} as const
+
+export type condicion_academica = (typeof condicion_academica)[keyof typeof condicion_academica]
+
+
+export const rol_participacion = {
+  integrante: 'integrante',
+  director: 'director',
+  codirector: 'codirector'
+} as const
+
+export type rol_participacion = (typeof rol_participacion)[keyof typeof rol_participacion]
+
+
+export const estado_tesis = {
+  pendiente: 'pendiente',
+  aprobada: 'aprobada',
+  rechazada: 'rechazada'
+} as const
+
+export type estado_tesis = (typeof estado_tesis)[keyof typeof estado_tesis]

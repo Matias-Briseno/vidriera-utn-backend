@@ -8,10 +8,9 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/personas.js'
 export type * from './models/tecnicaturas.js'
+export type * from './models/users.js'
 export type * from './models/tesis.js'
 export type * from './models/tesis_galeria.js'
 export type * from './models/tesis_participantes.js'
-export type * from './models/users.js'
 export type * from './commonInputTypes.js'

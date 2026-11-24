@@ -1,15 +1,17 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post,
+} from '@nestjs/common';
 import { TesisService } from './tesis.service.js';
-import { CreateTesiDto } from './dto/create-tesi.dto.js';
-import { UpdateTesiDto } from './dto/update-tesi.dto.js';
+import { CreateTesisDto } from './dto/create-tesi.dto.js';
+import { UpdateTesisDto } from './dto/update-tesi.dto.js';
 
 @Controller('tesis')
 export class TesisController {
   constructor(private readonly tesisService: TesisService) {}
 
   @Post()
-  create(@Body() createTesiDto: CreateTesiDto) {
-    return this.tesisService.create(createTesiDto);
+  create(@Body() dto: CreateTesisDto) {
+    return this.tesisService.create(dto);
   }
 
   @Get()
@@ -18,17 +20,17 @@ export class TesisController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tesisService.findOne(+id);
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.tesisService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTesiDto: UpdateTesiDto) {
-    return this.tesisService.update(+id, updateTesiDto);
+  update(@Param('id', ParseIntPipe) id: number, @Body() dto: UpdateTesisDto) {
+    return this.tesisService.update(id, dto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.tesisService.remove(+id);
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.tesisService.remove(id);
   }
 }

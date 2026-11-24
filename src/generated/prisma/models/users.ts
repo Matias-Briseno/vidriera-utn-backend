@@ -40,12 +40,13 @@ export type UsersMinAggregateOutputType = {
   id: number | null
   nombre: string | null
   apellido: string | null
+  foto_url: string | null
   nro_legajo: string | null
   email: string | null
-  tecnicatura_id: number | null
-  condicion_academica: string | null
   password_hash: string | null
-  rol: string | null
+  tecnicatura_id: number | null
+  condicion_academica: $Enums.condicion_academica | null
+  rol: $Enums.rol_usuario | null
   created_at: Date | null
 }
 
@@ -53,12 +54,13 @@ export type UsersMaxAggregateOutputType = {
   id: number | null
   nombre: string | null
   apellido: string | null
+  foto_url: string | null
   nro_legajo: string | null
   email: string | null
-  tecnicatura_id: number | null
-  condicion_academica: string | null
   password_hash: string | null
-  rol: string | null
+  tecnicatura_id: number | null
+  condicion_academica: $Enums.condicion_academica | null
+  rol: $Enums.rol_usuario | null
   created_at: Date | null
 }
 
@@ -66,11 +68,12 @@ export type UsersCountAggregateOutputType = {
   id: number
   nombre: number
   apellido: number
+  foto_url: number
   nro_legajo: number
   email: number
+  password_hash: number
   tecnicatura_id: number
   condicion_academica: number
-  password_hash: number
   rol: number
   created_at: number
   _all: number
@@ -91,11 +94,12 @@ export type UsersMinAggregateInputType = {
   id?: true
   nombre?: true
   apellido?: true
+  foto_url?: true
   nro_legajo?: true
   email?: true
+  password_hash?: true
   tecnicatura_id?: true
   condicion_academica?: true
-  password_hash?: true
   rol?: true
   created_at?: true
 }
@@ -104,11 +108,12 @@ export type UsersMaxAggregateInputType = {
   id?: true
   nombre?: true
   apellido?: true
+  foto_url?: true
   nro_legajo?: true
   email?: true
+  password_hash?: true
   tecnicatura_id?: true
   condicion_academica?: true
-  password_hash?: true
   rol?: true
   created_at?: true
 }
@@ -117,11 +122,12 @@ export type UsersCountAggregateInputType = {
   id?: true
   nombre?: true
   apellido?: true
+  foto_url?: true
   nro_legajo?: true
   email?: true
+  password_hash?: true
   tecnicatura_id?: true
   condicion_academica?: true
-  password_hash?: true
   rol?: true
   created_at?: true
   _all?: true
@@ -217,12 +223,13 @@ export type UsersGroupByOutputType = {
   id: number
   nombre: string
   apellido: string
+  foto_url: string | null
   nro_legajo: string
   email: string
-  tecnicatura_id: number
-  condicion_academica: string
-  password_hash: string
-  rol: string
+  password_hash: string | null
+  tecnicatura_id: number | null
+  condicion_academica: $Enums.condicion_academica | null
+  rol: $Enums.rol_usuario
   created_at: Date
   _count: UsersCountAggregateOutputType | null
   _avg: UsersAvgAggregateOutputType | null
@@ -253,28 +260,32 @@ export type usersWhereInput = {
   id?: Prisma.IntFilter<"users"> | number
   nombre?: Prisma.StringFilter<"users"> | string
   apellido?: Prisma.StringFilter<"users"> | string
+  foto_url?: Prisma.StringNullableFilter<"users"> | string | null
   nro_legajo?: Prisma.StringFilter<"users"> | string
   email?: Prisma.StringFilter<"users"> | string
-  tecnicatura_id?: Prisma.IntFilter<"users"> | number
-  condicion_academica?: Prisma.StringFilter<"users"> | string
-  password_hash?: Prisma.StringFilter<"users"> | string
-  rol?: Prisma.StringFilter<"users"> | string
+  password_hash?: Prisma.StringNullableFilter<"users"> | string | null
+  tecnicatura_id?: Prisma.IntNullableFilter<"users"> | number | null
+  condicion_academica?: Prisma.Enumcondicion_academicaNullableFilter<"users"> | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFilter<"users"> | $Enums.rol_usuario
   created_at?: Prisma.DateTimeFilter<"users"> | Date | string
-  tecnicaturas?: Prisma.XOR<Prisma.TecnicaturasScalarRelationFilter, Prisma.tecnicaturasWhereInput>
+  tecnicaturas?: Prisma.XOR<Prisma.TecnicaturasNullableScalarRelationFilter, Prisma.tecnicaturasWhereInput> | null
+  tesis_participantes?: Prisma.Tesis_participantesListRelationFilter
 }
 
 export type usersOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
   apellido?: Prisma.SortOrder
+  foto_url?: Prisma.SortOrderInput | Prisma.SortOrder
   nro_legajo?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  tecnicatura_id?: Prisma.SortOrder
-  condicion_academica?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
+  password_hash?: Prisma.SortOrderInput | Prisma.SortOrder
+  tecnicatura_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  condicion_academica?: Prisma.SortOrderInput | Prisma.SortOrder
   rol?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   tecnicaturas?: Prisma.tecnicaturasOrderByWithRelationInput
+  tesis_participantes?: Prisma.tesis_participantesOrderByRelationAggregateInput
 }
 
 export type usersWhereUniqueInput = Prisma.AtLeast<{
@@ -286,23 +297,26 @@ export type usersWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.usersWhereInput | Prisma.usersWhereInput[]
   nombre?: Prisma.StringFilter<"users"> | string
   apellido?: Prisma.StringFilter<"users"> | string
-  tecnicatura_id?: Prisma.IntFilter<"users"> | number
-  condicion_academica?: Prisma.StringFilter<"users"> | string
-  password_hash?: Prisma.StringFilter<"users"> | string
-  rol?: Prisma.StringFilter<"users"> | string
+  foto_url?: Prisma.StringNullableFilter<"users"> | string | null
+  password_hash?: Prisma.StringNullableFilter<"users"> | string | null
+  tecnicatura_id?: Prisma.IntNullableFilter<"users"> | number | null
+  condicion_academica?: Prisma.Enumcondicion_academicaNullableFilter<"users"> | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFilter<"users"> | $Enums.rol_usuario
   created_at?: Prisma.DateTimeFilter<"users"> | Date | string
-  tecnicaturas?: Prisma.XOR<Prisma.TecnicaturasScalarRelationFilter, Prisma.tecnicaturasWhereInput>
+  tecnicaturas?: Prisma.XOR<Prisma.TecnicaturasNullableScalarRelationFilter, Prisma.tecnicaturasWhereInput> | null
+  tesis_participantes?: Prisma.Tesis_participantesListRelationFilter
 }, "id" | "nro_legajo" | "email">
 
 export type usersOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
   apellido?: Prisma.SortOrder
+  foto_url?: Prisma.SortOrderInput | Prisma.SortOrder
   nro_legajo?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  tecnicatura_id?: Prisma.SortOrder
-  condicion_academica?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
+  password_hash?: Prisma.SortOrderInput | Prisma.SortOrder
+  tecnicatura_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  condicion_academica?: Prisma.SortOrderInput | Prisma.SortOrder
   rol?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.usersCountOrderByAggregateInput
@@ -319,86 +333,97 @@ export type usersScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"users"> | number
   nombre?: Prisma.StringWithAggregatesFilter<"users"> | string
   apellido?: Prisma.StringWithAggregatesFilter<"users"> | string
+  foto_url?: Prisma.StringNullableWithAggregatesFilter<"users"> | string | null
   nro_legajo?: Prisma.StringWithAggregatesFilter<"users"> | string
   email?: Prisma.StringWithAggregatesFilter<"users"> | string
-  tecnicatura_id?: Prisma.IntWithAggregatesFilter<"users"> | number
-  condicion_academica?: Prisma.StringWithAggregatesFilter<"users"> | string
-  password_hash?: Prisma.StringWithAggregatesFilter<"users"> | string
-  rol?: Prisma.StringWithAggregatesFilter<"users"> | string
+  password_hash?: Prisma.StringNullableWithAggregatesFilter<"users"> | string | null
+  tecnicatura_id?: Prisma.IntNullableWithAggregatesFilter<"users"> | number | null
+  condicion_academica?: Prisma.Enumcondicion_academicaNullableWithAggregatesFilter<"users"> | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioWithAggregatesFilter<"users"> | $Enums.rol_usuario
   created_at?: Prisma.DateTimeWithAggregatesFilter<"users"> | Date | string
 }
 
 export type usersCreateInput = {
   nombre: string
   apellido: string
+  foto_url?: string | null
   nro_legajo: string
   email: string
-  condicion_academica: string
-  password_hash: string
-  rol?: string
+  password_hash?: string | null
+  condicion_academica?: $Enums.condicion_academica | null
+  rol?: $Enums.rol_usuario
   created_at?: Date | string
-  tecnicaturas: Prisma.tecnicaturasCreateNestedOneWithoutUsersInput
+  tecnicaturas?: Prisma.tecnicaturasCreateNestedOneWithoutUsersInput
+  tesis_participantes?: Prisma.tesis_participantesCreateNestedManyWithoutUsersInput
 }
 
 export type usersUncheckedCreateInput = {
   id?: number
   nombre: string
   apellido: string
+  foto_url?: string | null
   nro_legajo: string
   email: string
-  tecnicatura_id: number
-  condicion_academica: string
-  password_hash: string
-  rol?: string
+  password_hash?: string | null
+  tecnicatura_id?: number | null
+  condicion_academica?: $Enums.condicion_academica | null
+  rol?: $Enums.rol_usuario
   created_at?: Date | string
+  tesis_participantes?: Prisma.tesis_participantesUncheckedCreateNestedManyWithoutUsersInput
 }
 
 export type usersUpdateInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  foto_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nro_legajo?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  condicion_academica?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  rol?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  condicion_academica?: Prisma.NullableEnumcondicion_academicaFieldUpdateOperationsInput | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFieldUpdateOperationsInput | $Enums.rol_usuario
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  tecnicaturas?: Prisma.tecnicaturasUpdateOneRequiredWithoutUsersNestedInput
+  tecnicaturas?: Prisma.tecnicaturasUpdateOneWithoutUsersNestedInput
+  tesis_participantes?: Prisma.tesis_participantesUpdateManyWithoutUsersNestedInput
 }
 
 export type usersUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  foto_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nro_legajo?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  tecnicatura_id?: Prisma.IntFieldUpdateOperationsInput | number
-  condicion_academica?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  rol?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tecnicatura_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  condicion_academica?: Prisma.NullableEnumcondicion_academicaFieldUpdateOperationsInput | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFieldUpdateOperationsInput | $Enums.rol_usuario
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tesis_participantes?: Prisma.tesis_participantesUncheckedUpdateManyWithoutUsersNestedInput
 }
 
 export type usersCreateManyInput = {
   id?: number
   nombre: string
   apellido: string
+  foto_url?: string | null
   nro_legajo: string
   email: string
-  tecnicatura_id: number
-  condicion_academica: string
-  password_hash: string
-  rol?: string
+  password_hash?: string | null
+  tecnicatura_id?: number | null
+  condicion_academica?: $Enums.condicion_academica | null
+  rol?: $Enums.rol_usuario
   created_at?: Date | string
 }
 
 export type usersUpdateManyMutationInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  foto_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nro_legajo?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  condicion_academica?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  rol?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  condicion_academica?: Prisma.NullableEnumcondicion_academicaFieldUpdateOperationsInput | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFieldUpdateOperationsInput | $Enums.rol_usuario
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -406,12 +431,13 @@ export type usersUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  foto_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nro_legajo?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  tecnicatura_id?: Prisma.IntFieldUpdateOperationsInput | number
-  condicion_academica?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  rol?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tecnicatura_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  condicion_academica?: Prisma.NullableEnumcondicion_academicaFieldUpdateOperationsInput | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFieldUpdateOperationsInput | $Enums.rol_usuario
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -429,11 +455,12 @@ export type usersCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
   apellido?: Prisma.SortOrder
+  foto_url?: Prisma.SortOrder
   nro_legajo?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  password_hash?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
   condicion_academica?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
   rol?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -447,11 +474,12 @@ export type usersMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
   apellido?: Prisma.SortOrder
+  foto_url?: Prisma.SortOrder
   nro_legajo?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  password_hash?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
   condicion_academica?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
   rol?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -460,11 +488,12 @@ export type usersMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
   apellido?: Prisma.SortOrder
+  foto_url?: Prisma.SortOrder
   nro_legajo?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  password_hash?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
   condicion_academica?: Prisma.SortOrder
-  password_hash?: Prisma.SortOrder
   rol?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -472,6 +501,11 @@ export type usersMinOrderByAggregateInput = {
 export type usersSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
+}
+
+export type UsersScalarRelationFilter = {
+  is?: Prisma.usersWhereInput
+  isNot?: Prisma.usersWhereInput
 }
 
 export type usersCreateNestedManyWithoutTecnicaturasInput = {
@@ -516,27 +550,69 @@ export type usersUncheckedUpdateManyWithoutTecnicaturasNestedInput = {
   deleteMany?: Prisma.usersScalarWhereInput | Prisma.usersScalarWhereInput[]
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
+export type NullableEnumcondicion_academicaFieldUpdateOperationsInput = {
+  set?: $Enums.condicion_academica | null
+}
+
+export type Enumrol_usuarioFieldUpdateOperationsInput = {
+  set?: $Enums.rol_usuario
+}
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type usersCreateNestedOneWithoutTesis_participantesInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutTesis_participantesInput, Prisma.usersUncheckedCreateWithoutTesis_participantesInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutTesis_participantesInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneRequiredWithoutTesis_participantesNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutTesis_participantesInput, Prisma.usersUncheckedCreateWithoutTesis_participantesInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutTesis_participantesInput
+  upsert?: Prisma.usersUpsertWithoutTesis_participantesInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutTesis_participantesInput, Prisma.usersUpdateWithoutTesis_participantesInput>, Prisma.usersUncheckedUpdateWithoutTesis_participantesInput>
+}
+
 export type usersCreateWithoutTecnicaturasInput = {
   nombre: string
   apellido: string
+  foto_url?: string | null
   nro_legajo: string
   email: string
-  condicion_academica: string
-  password_hash: string
-  rol?: string
+  password_hash?: string | null
+  condicion_academica?: $Enums.condicion_academica | null
+  rol?: $Enums.rol_usuario
   created_at?: Date | string
+  tesis_participantes?: Prisma.tesis_participantesCreateNestedManyWithoutUsersInput
 }
 
 export type usersUncheckedCreateWithoutTecnicaturasInput = {
   id?: number
   nombre: string
   apellido: string
+  foto_url?: string | null
   nro_legajo: string
   email: string
-  condicion_academica: string
-  password_hash: string
-  rol?: string
+  password_hash?: string | null
+  condicion_academica?: $Enums.condicion_academica | null
+  rol?: $Enums.rol_usuario
   created_at?: Date | string
+  tesis_participantes?: Prisma.tesis_participantesUncheckedCreateNestedManyWithoutUsersInput
 }
 
 export type usersCreateOrConnectWithoutTecnicaturasInput = {
@@ -572,145 +648,261 @@ export type usersScalarWhereInput = {
   id?: Prisma.IntFilter<"users"> | number
   nombre?: Prisma.StringFilter<"users"> | string
   apellido?: Prisma.StringFilter<"users"> | string
+  foto_url?: Prisma.StringNullableFilter<"users"> | string | null
   nro_legajo?: Prisma.StringFilter<"users"> | string
   email?: Prisma.StringFilter<"users"> | string
-  tecnicatura_id?: Prisma.IntFilter<"users"> | number
-  condicion_academica?: Prisma.StringFilter<"users"> | string
-  password_hash?: Prisma.StringFilter<"users"> | string
-  rol?: Prisma.StringFilter<"users"> | string
+  password_hash?: Prisma.StringNullableFilter<"users"> | string | null
+  tecnicatura_id?: Prisma.IntNullableFilter<"users"> | number | null
+  condicion_academica?: Prisma.Enumcondicion_academicaNullableFilter<"users"> | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFilter<"users"> | $Enums.rol_usuario
   created_at?: Prisma.DateTimeFilter<"users"> | Date | string
+}
+
+export type usersCreateWithoutTesis_participantesInput = {
+  nombre: string
+  apellido: string
+  foto_url?: string | null
+  nro_legajo: string
+  email: string
+  password_hash?: string | null
+  condicion_academica?: $Enums.condicion_academica | null
+  rol?: $Enums.rol_usuario
+  created_at?: Date | string
+  tecnicaturas?: Prisma.tecnicaturasCreateNestedOneWithoutUsersInput
+}
+
+export type usersUncheckedCreateWithoutTesis_participantesInput = {
+  id?: number
+  nombre: string
+  apellido: string
+  foto_url?: string | null
+  nro_legajo: string
+  email: string
+  password_hash?: string | null
+  tecnicatura_id?: number | null
+  condicion_academica?: $Enums.condicion_academica | null
+  rol?: $Enums.rol_usuario
+  created_at?: Date | string
+}
+
+export type usersCreateOrConnectWithoutTesis_participantesInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutTesis_participantesInput, Prisma.usersUncheckedCreateWithoutTesis_participantesInput>
+}
+
+export type usersUpsertWithoutTesis_participantesInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutTesis_participantesInput, Prisma.usersUncheckedUpdateWithoutTesis_participantesInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutTesis_participantesInput, Prisma.usersUncheckedCreateWithoutTesis_participantesInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutTesis_participantesInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutTesis_participantesInput, Prisma.usersUncheckedUpdateWithoutTesis_participantesInput>
+}
+
+export type usersUpdateWithoutTesis_participantesInput = {
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  foto_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nro_legajo?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  condicion_academica?: Prisma.NullableEnumcondicion_academicaFieldUpdateOperationsInput | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFieldUpdateOperationsInput | $Enums.rol_usuario
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tecnicaturas?: Prisma.tecnicaturasUpdateOneWithoutUsersNestedInput
+}
+
+export type usersUncheckedUpdateWithoutTesis_participantesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  foto_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nro_legajo?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tecnicatura_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  condicion_academica?: Prisma.NullableEnumcondicion_academicaFieldUpdateOperationsInput | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFieldUpdateOperationsInput | $Enums.rol_usuario
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type usersCreateManyTecnicaturasInput = {
   id?: number
   nombre: string
   apellido: string
+  foto_url?: string | null
   nro_legajo: string
   email: string
-  condicion_academica: string
-  password_hash: string
-  rol?: string
+  password_hash?: string | null
+  condicion_academica?: $Enums.condicion_academica | null
+  rol?: $Enums.rol_usuario
   created_at?: Date | string
 }
 
 export type usersUpdateWithoutTecnicaturasInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  foto_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nro_legajo?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  condicion_academica?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  rol?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  condicion_academica?: Prisma.NullableEnumcondicion_academicaFieldUpdateOperationsInput | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFieldUpdateOperationsInput | $Enums.rol_usuario
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tesis_participantes?: Prisma.tesis_participantesUpdateManyWithoutUsersNestedInput
 }
 
 export type usersUncheckedUpdateWithoutTecnicaturasInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  foto_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nro_legajo?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  condicion_academica?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  rol?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  condicion_academica?: Prisma.NullableEnumcondicion_academicaFieldUpdateOperationsInput | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFieldUpdateOperationsInput | $Enums.rol_usuario
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tesis_participantes?: Prisma.tesis_participantesUncheckedUpdateManyWithoutUsersNestedInput
 }
 
 export type usersUncheckedUpdateManyWithoutTecnicaturasInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   apellido?: Prisma.StringFieldUpdateOperationsInput | string
+  foto_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nro_legajo?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  condicion_academica?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  rol?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  condicion_academica?: Prisma.NullableEnumcondicion_academicaFieldUpdateOperationsInput | $Enums.condicion_academica | null
+  rol?: Prisma.Enumrol_usuarioFieldUpdateOperationsInput | $Enums.rol_usuario
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+
+/**
+ * Count Type UsersCountOutputType
+ */
+
+export type UsersCountOutputType = {
+  tesis_participantes: number
+}
+
+export type UsersCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  tesis_participantes?: boolean | UsersCountOutputTypeCountTesis_participantesArgs
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UsersCountOutputType
+   */
+  select?: Prisma.UsersCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountTesis_participantesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tesis_participantesWhereInput
+}
 
 
 export type usersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   nombre?: boolean
   apellido?: boolean
+  foto_url?: boolean
   nro_legajo?: boolean
   email?: boolean
+  password_hash?: boolean
   tecnicatura_id?: boolean
   condicion_academica?: boolean
-  password_hash?: boolean
   rol?: boolean
   created_at?: boolean
-  tecnicaturas?: boolean | Prisma.tecnicaturasDefaultArgs<ExtArgs>
+  tecnicaturas?: boolean | Prisma.users$tecnicaturasArgs<ExtArgs>
+  tesis_participantes?: boolean | Prisma.users$tesis_participantesArgs<ExtArgs>
+  _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["users"]>
 
 export type usersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   nombre?: boolean
   apellido?: boolean
+  foto_url?: boolean
   nro_legajo?: boolean
   email?: boolean
+  password_hash?: boolean
   tecnicatura_id?: boolean
   condicion_academica?: boolean
-  password_hash?: boolean
   rol?: boolean
   created_at?: boolean
-  tecnicaturas?: boolean | Prisma.tecnicaturasDefaultArgs<ExtArgs>
+  tecnicaturas?: boolean | Prisma.users$tecnicaturasArgs<ExtArgs>
 }, ExtArgs["result"]["users"]>
 
 export type usersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   nombre?: boolean
   apellido?: boolean
+  foto_url?: boolean
   nro_legajo?: boolean
   email?: boolean
+  password_hash?: boolean
   tecnicatura_id?: boolean
   condicion_academica?: boolean
-  password_hash?: boolean
   rol?: boolean
   created_at?: boolean
-  tecnicaturas?: boolean | Prisma.tecnicaturasDefaultArgs<ExtArgs>
+  tecnicaturas?: boolean | Prisma.users$tecnicaturasArgs<ExtArgs>
 }, ExtArgs["result"]["users"]>
 
 export type usersSelectScalar = {
   id?: boolean
   nombre?: boolean
   apellido?: boolean
+  foto_url?: boolean
   nro_legajo?: boolean
   email?: boolean
+  password_hash?: boolean
   tecnicatura_id?: boolean
   condicion_academica?: boolean
-  password_hash?: boolean
   rol?: boolean
   created_at?: boolean
 }
 
-export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "apellido" | "nro_legajo" | "email" | "tecnicatura_id" | "condicion_academica" | "password_hash" | "rol" | "created_at", ExtArgs["result"]["users"]>
+export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "apellido" | "foto_url" | "nro_legajo" | "email" | "password_hash" | "tecnicatura_id" | "condicion_academica" | "rol" | "created_at", ExtArgs["result"]["users"]>
 export type usersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  tecnicaturas?: boolean | Prisma.tecnicaturasDefaultArgs<ExtArgs>
+  tecnicaturas?: boolean | Prisma.users$tecnicaturasArgs<ExtArgs>
+  tesis_participantes?: boolean | Prisma.users$tesis_participantesArgs<ExtArgs>
+  _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type usersIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  tecnicaturas?: boolean | Prisma.tecnicaturasDefaultArgs<ExtArgs>
+  tecnicaturas?: boolean | Prisma.users$tecnicaturasArgs<ExtArgs>
 }
 export type usersIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  tecnicaturas?: boolean | Prisma.tecnicaturasDefaultArgs<ExtArgs>
+  tecnicaturas?: boolean | Prisma.users$tecnicaturasArgs<ExtArgs>
 }
 
 export type $usersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "users"
   objects: {
-    tecnicaturas: Prisma.$tecnicaturasPayload<ExtArgs>
+    tecnicaturas: Prisma.$tecnicaturasPayload<ExtArgs> | null
+    tesis_participantes: Prisma.$tesis_participantesPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     nombre: string
     apellido: string
+    foto_url: string | null
     nro_legajo: string
     email: string
-    tecnicatura_id: number
-    condicion_academica: string
-    password_hash: string
-    rol: string
+    password_hash: string | null
+    tecnicatura_id: number | null
+    condicion_academica: $Enums.condicion_academica | null
+    rol: $Enums.rol_usuario
     created_at: Date
   }, ExtArgs["result"]["users"]>
   composites: {}
@@ -1106,7 +1298,8 @@ readonly fields: usersFieldRefs;
  */
 export interface Prisma__usersClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  tecnicaturas<T extends Prisma.tecnicaturasDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tecnicaturasDefaultArgs<ExtArgs>>): Prisma.Prisma__tecnicaturasClient<runtime.Types.Result.GetResult<Prisma.$tecnicaturasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  tecnicaturas<T extends Prisma.users$tecnicaturasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$tecnicaturasArgs<ExtArgs>>): Prisma.Prisma__tecnicaturasClient<runtime.Types.Result.GetResult<Prisma.$tecnicaturasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  tesis_participantes<T extends Prisma.users$tesis_participantesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$tesis_participantesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tesis_participantesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1139,12 +1332,13 @@ export interface usersFieldRefs {
   readonly id: Prisma.FieldRef<"users", 'Int'>
   readonly nombre: Prisma.FieldRef<"users", 'String'>
   readonly apellido: Prisma.FieldRef<"users", 'String'>
+  readonly foto_url: Prisma.FieldRef<"users", 'String'>
   readonly nro_legajo: Prisma.FieldRef<"users", 'String'>
   readonly email: Prisma.FieldRef<"users", 'String'>
-  readonly tecnicatura_id: Prisma.FieldRef<"users", 'Int'>
-  readonly condicion_academica: Prisma.FieldRef<"users", 'String'>
   readonly password_hash: Prisma.FieldRef<"users", 'String'>
-  readonly rol: Prisma.FieldRef<"users", 'String'>
+  readonly tecnicatura_id: Prisma.FieldRef<"users", 'Int'>
+  readonly condicion_academica: Prisma.FieldRef<"users", 'condicion_academica'>
+  readonly rol: Prisma.FieldRef<"users", 'rol_usuario'>
   readonly created_at: Prisma.FieldRef<"users", 'DateTime'>
 }
     
@@ -1544,6 +1738,49 @@ export type usersDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Limit how many users to delete.
    */
   limit?: number
+}
+
+/**
+ * users.tecnicaturas
+ */
+export type users$tecnicaturasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tecnicaturas
+   */
+  select?: Prisma.tecnicaturasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tecnicaturas
+   */
+  omit?: Prisma.tecnicaturasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tecnicaturasInclude<ExtArgs> | null
+  where?: Prisma.tecnicaturasWhereInput
+}
+
+/**
+ * users.tesis_participantes
+ */
+export type users$tesis_participantesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tesis_participantes
+   */
+  select?: Prisma.tesis_participantesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tesis_participantes
+   */
+  omit?: Prisma.tesis_participantesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tesis_participantesInclude<ExtArgs> | null
+  where?: Prisma.tesis_participantesWhereInput
+  orderBy?: Prisma.tesis_participantesOrderByWithRelationInput | Prisma.tesis_participantesOrderByWithRelationInput[]
+  cursor?: Prisma.tesis_participantesWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tesis_participantesScalarFieldEnum | Prisma.Tesis_participantesScalarFieldEnum[]
 }
 
 /**

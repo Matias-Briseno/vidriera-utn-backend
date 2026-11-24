@@ -14,7 +14,7 @@ import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
  * Model tesis
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * 
  */
 export type tesisModel = runtime.Types.Result.DefaultSelection<Prisma.$tesisPayload>
 
@@ -29,14 +29,12 @@ export type AggregateTesis = {
 export type TesisAvgAggregateOutputType = {
   id: number | null
   tecnicatura_id: number | null
-  anio: number | null
   vistas: number | null
 }
 
 export type TesisSumAggregateOutputType = {
   id: number | null
   tecnicatura_id: number | null
-  anio: number | null
   vistas: number | null
 }
 
@@ -44,9 +42,9 @@ export type TesisMinAggregateOutputType = {
   id: number | null
   tecnicatura_id: number | null
   titulo: string | null
-  anio: number | null
   tema: string | null
   resumen: string | null
+  estado: $Enums.estado_tesis | null
   vistas: number | null
   fecha_publicacion: Date | null
   miniatura_url: string | null
@@ -61,9 +59,9 @@ export type TesisMaxAggregateOutputType = {
   id: number | null
   tecnicatura_id: number | null
   titulo: string | null
-  anio: number | null
   tema: string | null
   resumen: string | null
+  estado: $Enums.estado_tesis | null
   vistas: number | null
   fecha_publicacion: Date | null
   miniatura_url: string | null
@@ -78,9 +76,9 @@ export type TesisCountAggregateOutputType = {
   id: number
   tecnicatura_id: number
   titulo: number
-  anio: number
   tema: number
   resumen: number
+  estado: number
   vistas: number
   fecha_publicacion: number
   miniatura_url: number
@@ -96,14 +94,12 @@ export type TesisCountAggregateOutputType = {
 export type TesisAvgAggregateInputType = {
   id?: true
   tecnicatura_id?: true
-  anio?: true
   vistas?: true
 }
 
 export type TesisSumAggregateInputType = {
   id?: true
   tecnicatura_id?: true
-  anio?: true
   vistas?: true
 }
 
@@ -111,9 +107,9 @@ export type TesisMinAggregateInputType = {
   id?: true
   tecnicatura_id?: true
   titulo?: true
-  anio?: true
   tema?: true
   resumen?: true
+  estado?: true
   vistas?: true
   fecha_publicacion?: true
   miniatura_url?: true
@@ -128,9 +124,9 @@ export type TesisMaxAggregateInputType = {
   id?: true
   tecnicatura_id?: true
   titulo?: true
-  anio?: true
   tema?: true
   resumen?: true
+  estado?: true
   vistas?: true
   fecha_publicacion?: true
   miniatura_url?: true
@@ -145,9 +141,9 @@ export type TesisCountAggregateInputType = {
   id?: true
   tecnicatura_id?: true
   titulo?: true
-  anio?: true
   tema?: true
   resumen?: true
+  estado?: true
   vistas?: true
   fecha_publicacion?: true
   miniatura_url?: true
@@ -249,9 +245,9 @@ export type TesisGroupByOutputType = {
   id: number
   tecnicatura_id: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado: $Enums.estado_tesis
   vistas: number
   fecha_publicacion: Date
   miniatura_url: string
@@ -289,9 +285,9 @@ export type tesisWhereInput = {
   id?: Prisma.IntFilter<"tesis"> | number
   tecnicatura_id?: Prisma.IntFilter<"tesis"> | number
   titulo?: Prisma.StringFilter<"tesis"> | string
-  anio?: Prisma.IntFilter<"tesis"> | number
   tema?: Prisma.StringFilter<"tesis"> | string
   resumen?: Prisma.StringFilter<"tesis"> | string
+  estado?: Prisma.Enumestado_tesisFilter<"tesis"> | $Enums.estado_tesis
   vistas?: Prisma.IntFilter<"tesis"> | number
   fecha_publicacion?: Prisma.DateTimeFilter<"tesis"> | Date | string
   miniatura_url?: Prisma.StringFilter<"tesis"> | string
@@ -309,9 +305,9 @@ export type tesisOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
   titulo?: Prisma.SortOrder
-  anio?: Prisma.SortOrder
   tema?: Prisma.SortOrder
   resumen?: Prisma.SortOrder
+  estado?: Prisma.SortOrder
   vistas?: Prisma.SortOrder
   fecha_publicacion?: Prisma.SortOrder
   miniatura_url?: Prisma.SortOrder
@@ -332,9 +328,9 @@ export type tesisWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.tesisWhereInput | Prisma.tesisWhereInput[]
   tecnicatura_id?: Prisma.IntFilter<"tesis"> | number
   titulo?: Prisma.StringFilter<"tesis"> | string
-  anio?: Prisma.IntFilter<"tesis"> | number
   tema?: Prisma.StringFilter<"tesis"> | string
   resumen?: Prisma.StringFilter<"tesis"> | string
+  estado?: Prisma.Enumestado_tesisFilter<"tesis"> | $Enums.estado_tesis
   vistas?: Prisma.IntFilter<"tesis"> | number
   fecha_publicacion?: Prisma.DateTimeFilter<"tesis"> | Date | string
   miniatura_url?: Prisma.StringFilter<"tesis"> | string
@@ -352,9 +348,9 @@ export type tesisOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
   titulo?: Prisma.SortOrder
-  anio?: Prisma.SortOrder
   tema?: Prisma.SortOrder
   resumen?: Prisma.SortOrder
+  estado?: Prisma.SortOrder
   vistas?: Prisma.SortOrder
   fecha_publicacion?: Prisma.SortOrder
   miniatura_url?: Prisma.SortOrder
@@ -377,9 +373,9 @@ export type tesisScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"tesis"> | number
   tecnicatura_id?: Prisma.IntWithAggregatesFilter<"tesis"> | number
   titulo?: Prisma.StringWithAggregatesFilter<"tesis"> | string
-  anio?: Prisma.IntWithAggregatesFilter<"tesis"> | number
   tema?: Prisma.StringWithAggregatesFilter<"tesis"> | string
   resumen?: Prisma.StringWithAggregatesFilter<"tesis"> | string
+  estado?: Prisma.Enumestado_tesisWithAggregatesFilter<"tesis"> | $Enums.estado_tesis
   vistas?: Prisma.IntWithAggregatesFilter<"tesis"> | number
   fecha_publicacion?: Prisma.DateTimeWithAggregatesFilter<"tesis"> | Date | string
   miniatura_url?: Prisma.StringWithAggregatesFilter<"tesis"> | string
@@ -391,11 +387,10 @@ export type tesisScalarWhereWithAggregatesInput = {
 }
 
 export type tesisCreateInput = {
-  id: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado?: $Enums.estado_tesis
   vistas?: number
   fecha_publicacion: Date | string
   miniatura_url: string
@@ -410,12 +405,12 @@ export type tesisCreateInput = {
 }
 
 export type tesisUncheckedCreateInput = {
-  id: number
+  id?: number
   tecnicatura_id: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado?: $Enums.estado_tesis
   vistas?: number
   fecha_publicacion: Date | string
   miniatura_url: string
@@ -429,11 +424,10 @@ export type tesisUncheckedCreateInput = {
 }
 
 export type tesisUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -451,9 +445,9 @@ export type tesisUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tecnicatura_id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -467,12 +461,12 @@ export type tesisUncheckedUpdateInput = {
 }
 
 export type tesisCreateManyInput = {
-  id: number
+  id?: number
   tecnicatura_id: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado?: $Enums.estado_tesis
   vistas?: number
   fecha_publicacion: Date | string
   miniatura_url: string
@@ -484,11 +478,10 @@ export type tesisCreateManyInput = {
 }
 
 export type tesisUpdateManyMutationInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -503,9 +496,9 @@ export type tesisUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tecnicatura_id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -530,9 +523,9 @@ export type tesisCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
   titulo?: Prisma.SortOrder
-  anio?: Prisma.SortOrder
   tema?: Prisma.SortOrder
   resumen?: Prisma.SortOrder
+  estado?: Prisma.SortOrder
   vistas?: Prisma.SortOrder
   fecha_publicacion?: Prisma.SortOrder
   miniatura_url?: Prisma.SortOrder
@@ -546,7 +539,6 @@ export type tesisCountOrderByAggregateInput = {
 export type tesisAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
-  anio?: Prisma.SortOrder
   vistas?: Prisma.SortOrder
 }
 
@@ -554,9 +546,9 @@ export type tesisMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
   titulo?: Prisma.SortOrder
-  anio?: Prisma.SortOrder
   tema?: Prisma.SortOrder
   resumen?: Prisma.SortOrder
+  estado?: Prisma.SortOrder
   vistas?: Prisma.SortOrder
   fecha_publicacion?: Prisma.SortOrder
   miniatura_url?: Prisma.SortOrder
@@ -571,9 +563,9 @@ export type tesisMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
   titulo?: Prisma.SortOrder
-  anio?: Prisma.SortOrder
   tema?: Prisma.SortOrder
   resumen?: Prisma.SortOrder
+  estado?: Prisma.SortOrder
   vistas?: Prisma.SortOrder
   fecha_publicacion?: Prisma.SortOrder
   miniatura_url?: Prisma.SortOrder
@@ -587,7 +579,6 @@ export type tesisMinOrderByAggregateInput = {
 export type tesisSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tecnicatura_id?: Prisma.SortOrder
-  anio?: Prisma.SortOrder
   vistas?: Prisma.SortOrder
 }
 
@@ -638,8 +629,8 @@ export type tesisUncheckedUpdateManyWithoutTecnicaturasNestedInput = {
   deleteMany?: Prisma.tesisScalarWhereInput | Prisma.tesisScalarWhereInput[]
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
+export type Enumestado_tesisFieldUpdateOperationsInput = {
+  set?: $Enums.estado_tesis
 }
 
 export type tesisCreateNestedOneWithoutTesis_galeriaInput = {
@@ -671,11 +662,10 @@ export type tesisUpdateOneRequiredWithoutTesis_participantesNestedInput = {
 }
 
 export type tesisCreateWithoutTecnicaturasInput = {
-  id: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado?: $Enums.estado_tesis
   vistas?: number
   fecha_publicacion: Date | string
   miniatura_url: string
@@ -689,11 +679,11 @@ export type tesisCreateWithoutTecnicaturasInput = {
 }
 
 export type tesisUncheckedCreateWithoutTecnicaturasInput = {
-  id: number
+  id?: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado?: $Enums.estado_tesis
   vistas?: number
   fecha_publicacion: Date | string
   miniatura_url: string
@@ -739,9 +729,9 @@ export type tesisScalarWhereInput = {
   id?: Prisma.IntFilter<"tesis"> | number
   tecnicatura_id?: Prisma.IntFilter<"tesis"> | number
   titulo?: Prisma.StringFilter<"tesis"> | string
-  anio?: Prisma.IntFilter<"tesis"> | number
   tema?: Prisma.StringFilter<"tesis"> | string
   resumen?: Prisma.StringFilter<"tesis"> | string
+  estado?: Prisma.Enumestado_tesisFilter<"tesis"> | $Enums.estado_tesis
   vistas?: Prisma.IntFilter<"tesis"> | number
   fecha_publicacion?: Prisma.DateTimeFilter<"tesis"> | Date | string
   miniatura_url?: Prisma.StringFilter<"tesis"> | string
@@ -753,11 +743,10 @@ export type tesisScalarWhereInput = {
 }
 
 export type tesisCreateWithoutTesis_galeriaInput = {
-  id: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado?: $Enums.estado_tesis
   vistas?: number
   fecha_publicacion: Date | string
   miniatura_url: string
@@ -771,12 +760,12 @@ export type tesisCreateWithoutTesis_galeriaInput = {
 }
 
 export type tesisUncheckedCreateWithoutTesis_galeriaInput = {
-  id: number
+  id?: number
   tecnicatura_id: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado?: $Enums.estado_tesis
   vistas?: number
   fecha_publicacion: Date | string
   miniatura_url: string
@@ -805,11 +794,10 @@ export type tesisUpdateToOneWithWhereWithoutTesis_galeriaInput = {
 }
 
 export type tesisUpdateWithoutTesis_galeriaInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -826,9 +814,9 @@ export type tesisUncheckedUpdateWithoutTesis_galeriaInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tecnicatura_id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -841,11 +829,10 @@ export type tesisUncheckedUpdateWithoutTesis_galeriaInput = {
 }
 
 export type tesisCreateWithoutTesis_participantesInput = {
-  id: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado?: $Enums.estado_tesis
   vistas?: number
   fecha_publicacion: Date | string
   miniatura_url: string
@@ -859,12 +846,12 @@ export type tesisCreateWithoutTesis_participantesInput = {
 }
 
 export type tesisUncheckedCreateWithoutTesis_participantesInput = {
-  id: number
+  id?: number
   tecnicatura_id: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado?: $Enums.estado_tesis
   vistas?: number
   fecha_publicacion: Date | string
   miniatura_url: string
@@ -893,11 +880,10 @@ export type tesisUpdateToOneWithWhereWithoutTesis_participantesInput = {
 }
 
 export type tesisUpdateWithoutTesis_participantesInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -914,9 +900,9 @@ export type tesisUncheckedUpdateWithoutTesis_participantesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tecnicatura_id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -929,11 +915,11 @@ export type tesisUncheckedUpdateWithoutTesis_participantesInput = {
 }
 
 export type tesisCreateManyTecnicaturasInput = {
-  id: number
+  id?: number
   titulo: string
-  anio: number
   tema: string
   resumen: string
+  estado?: $Enums.estado_tesis
   vistas?: number
   fecha_publicacion: Date | string
   miniatura_url: string
@@ -945,11 +931,10 @@ export type tesisCreateManyTecnicaturasInput = {
 }
 
 export type tesisUpdateWithoutTecnicaturasInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -965,9 +950,9 @@ export type tesisUpdateWithoutTecnicaturasInput = {
 export type tesisUncheckedUpdateWithoutTecnicaturasInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -983,9 +968,9 @@ export type tesisUncheckedUpdateWithoutTecnicaturasInput = {
 export type tesisUncheckedUpdateManyWithoutTecnicaturasInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  anio?: Prisma.IntFieldUpdateOperationsInput | number
   tema?: Prisma.StringFieldUpdateOperationsInput | string
   resumen?: Prisma.StringFieldUpdateOperationsInput | string
+  estado?: Prisma.Enumestado_tesisFieldUpdateOperationsInput | $Enums.estado_tesis
   vistas?: Prisma.IntFieldUpdateOperationsInput | number
   fecha_publicacion?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   miniatura_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1040,9 +1025,9 @@ export type tesisSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   id?: boolean
   tecnicatura_id?: boolean
   titulo?: boolean
-  anio?: boolean
   tema?: boolean
   resumen?: boolean
+  estado?: boolean
   vistas?: boolean
   fecha_publicacion?: boolean
   miniatura_url?: boolean
@@ -1061,9 +1046,9 @@ export type tesisSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   tecnicatura_id?: boolean
   titulo?: boolean
-  anio?: boolean
   tema?: boolean
   resumen?: boolean
+  estado?: boolean
   vistas?: boolean
   fecha_publicacion?: boolean
   miniatura_url?: boolean
@@ -1079,9 +1064,9 @@ export type tesisSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   tecnicatura_id?: boolean
   titulo?: boolean
-  anio?: boolean
   tema?: boolean
   resumen?: boolean
+  estado?: boolean
   vistas?: boolean
   fecha_publicacion?: boolean
   miniatura_url?: boolean
@@ -1097,9 +1082,9 @@ export type tesisSelectScalar = {
   id?: boolean
   tecnicatura_id?: boolean
   titulo?: boolean
-  anio?: boolean
   tema?: boolean
   resumen?: boolean
+  estado?: boolean
   vistas?: boolean
   fecha_publicacion?: boolean
   miniatura_url?: boolean
@@ -1110,7 +1095,7 @@ export type tesisSelectScalar = {
   url_youtube?: boolean
 }
 
-export type tesisOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tecnicatura_id" | "titulo" | "anio" | "tema" | "resumen" | "vistas" | "fecha_publicacion" | "miniatura_url" | "imagen_principal_url" | "url_pdf" | "url_video" | "url_github" | "url_youtube", ExtArgs["result"]["tesis"]>
+export type tesisOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tecnicatura_id" | "titulo" | "tema" | "resumen" | "estado" | "vistas" | "fecha_publicacion" | "miniatura_url" | "imagen_principal_url" | "url_pdf" | "url_video" | "url_github" | "url_youtube", ExtArgs["result"]["tesis"]>
 export type tesisInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tecnicaturas?: boolean | Prisma.tecnicaturasDefaultArgs<ExtArgs>
   tesis_galeria?: boolean | Prisma.tesis$tesis_galeriaArgs<ExtArgs>
@@ -1135,9 +1120,9 @@ export type $tesisPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     id: number
     tecnicatura_id: number
     titulo: string
-    anio: number
     tema: string
     resumen: string
+    estado: $Enums.estado_tesis
     vistas: number
     fecha_publicacion: Date
     miniatura_url: string
@@ -1575,9 +1560,9 @@ export interface tesisFieldRefs {
   readonly id: Prisma.FieldRef<"tesis", 'Int'>
   readonly tecnicatura_id: Prisma.FieldRef<"tesis", 'Int'>
   readonly titulo: Prisma.FieldRef<"tesis", 'String'>
-  readonly anio: Prisma.FieldRef<"tesis", 'Int'>
   readonly tema: Prisma.FieldRef<"tesis", 'String'>
   readonly resumen: Prisma.FieldRef<"tesis", 'String'>
+  readonly estado: Prisma.FieldRef<"tesis", 'estado_tesis'>
   readonly vistas: Prisma.FieldRef<"tesis", 'Int'>
   readonly fecha_publicacion: Prisma.FieldRef<"tesis", 'DateTime'>
   readonly miniatura_url: Prisma.FieldRef<"tesis", 'String'>

@@ -51,12 +51,11 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  personas: 'personas',
   tecnicaturas: 'tecnicaturas',
+  users: 'users',
   tesis: 'tesis',
   tesis_galeria: 'tesis_galeria',
-  tesis_participantes: 'tesis_participantes',
-  users: 'users'
+  tesis_participantes: 'tesis_participantes'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -75,15 +74,6 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const PersonasScalarFieldEnum = {
-  id: 'id',
-  nombre_completo: 'nombre_completo',
-  foto_url: 'foto_url'
-} as const
-
-export type PersonasScalarFieldEnum = (typeof PersonasScalarFieldEnum)[keyof typeof PersonasScalarFieldEnum]
-
-
 export const TecnicaturasScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre',
@@ -94,13 +84,30 @@ export const TecnicaturasScalarFieldEnum = {
 export type TecnicaturasScalarFieldEnum = (typeof TecnicaturasScalarFieldEnum)[keyof typeof TecnicaturasScalarFieldEnum]
 
 
+export const UsersScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre',
+  apellido: 'apellido',
+  foto_url: 'foto_url',
+  nro_legajo: 'nro_legajo',
+  email: 'email',
+  password_hash: 'password_hash',
+  tecnicatura_id: 'tecnicatura_id',
+  condicion_academica: 'condicion_academica',
+  rol: 'rol',
+  created_at: 'created_at'
+} as const
+
+export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+
+
 export const TesisScalarFieldEnum = {
   id: 'id',
   tecnicatura_id: 'tecnicatura_id',
   titulo: 'titulo',
-  anio: 'anio',
   tema: 'tema',
   resumen: 'resumen',
+  estado: 'estado',
   vistas: 'vistas',
   fecha_publicacion: 'fecha_publicacion',
   miniatura_url: 'miniatura_url',
@@ -126,27 +133,11 @@ export type Tesis_galeriaScalarFieldEnum = (typeof Tesis_galeriaScalarFieldEnum)
 
 export const Tesis_participantesScalarFieldEnum = {
   tesis_id: 'tesis_id',
-  persona_id: 'persona_id',
+  user_id: 'user_id',
   rol_participacion: 'rol_participacion'
 } as const
 
 export type Tesis_participantesScalarFieldEnum = (typeof Tesis_participantesScalarFieldEnum)[keyof typeof Tesis_participantesScalarFieldEnum]
-
-
-export const UsersScalarFieldEnum = {
-  id: 'id',
-  nombre: 'nombre',
-  apellido: 'apellido',
-  nro_legajo: 'nro_legajo',
-  email: 'email',
-  tecnicatura_id: 'tecnicatura_id',
-  condicion_academica: 'condicion_academica',
-  password_hash: 'password_hash',
-  rol: 'rol',
-  created_at: 'created_at'
-} as const
-
-export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
 
 
 export const SortOrder = {
