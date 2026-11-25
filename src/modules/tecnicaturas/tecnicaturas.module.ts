@@ -1,6 +1,7 @@
-import { Module } from '@nestjs/common';
-import { TecnicaturasService } from './tecnicaturas.service.js';
-import { TecnicaturasController } from './tecnicaturas.controller.js';
+import { Module } from "@nestjs/common";
+
+import { TecnicaturasController } from "./tecnicaturas.controller.js";
+import { TecnicaturasService } from "./tecnicaturas.service.js";
 
 @Module({
   controllers: [TecnicaturasController],
