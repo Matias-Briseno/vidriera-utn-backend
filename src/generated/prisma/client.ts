@@ -31,8 +31,8 @@ export * from "./enums.js"
  * const prisma = new PrismaClient({
  *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
  * })
- * // Fetch zero or more Personas
- * const personas = await prisma.personas.findMany()
+ * // Fetch zero or more Tecnicaturas
+ * const tecnicaturas = await prisma.tecnicaturas.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -42,23 +42,23 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
- * Model personas
- * 
- */
-export type personas = Prisma.personasModel
-/**
  * Model tecnicaturas
  * 
  */
 export type tecnicaturas = Prisma.tecnicaturasModel
 /**
+ * Model users
+ * 
+ */
+export type users = Prisma.usersModel
+/**
  * Model tesis
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * 
  */
 export type tesis = Prisma.tesisModel
 /**
  * Model tesis_galeria
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * 
  */
 export type tesis_galeria = Prisma.tesis_galeriaModel
 /**
@@ -66,8 +66,3 @@ export type tesis_galeria = Prisma.tesis_galeriaModel
  * 
  */
 export type tesis_participantes = Prisma.tesis_participantesModel
-/**
- * Model users
- * 
- */
-export type users = Prisma.usersModel

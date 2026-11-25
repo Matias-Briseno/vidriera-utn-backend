@@ -256,7 +256,6 @@ export type tecnicaturasScalarWhereWithAggregatesInput = {
 }
 
 export type tecnicaturasCreateInput = {
-  id: number
   nombre: string
   descripcion: string
   imagen_url: string
@@ -265,7 +264,7 @@ export type tecnicaturasCreateInput = {
 }
 
 export type tecnicaturasUncheckedCreateInput = {
-  id: number
+  id?: number
   nombre: string
   descripcion: string
   imagen_url: string
@@ -274,7 +273,6 @@ export type tecnicaturasUncheckedCreateInput = {
 }
 
 export type tecnicaturasUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   descripcion?: Prisma.StringFieldUpdateOperationsInput | string
   imagen_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -292,14 +290,13 @@ export type tecnicaturasUncheckedUpdateInput = {
 }
 
 export type tecnicaturasCreateManyInput = {
-  id: number
+  id?: number
   nombre: string
   descripcion: string
   imagen_url: string
 }
 
 export type tecnicaturasUpdateManyMutationInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   descripcion?: Prisma.StringFieldUpdateOperationsInput | string
   imagen_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -341,9 +338,42 @@ export type tecnicaturasSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
 }
 
+export type TecnicaturasNullableScalarRelationFilter = {
+  is?: Prisma.tecnicaturasWhereInput | null
+  isNot?: Prisma.tecnicaturasWhereInput | null
+}
+
 export type TecnicaturasScalarRelationFilter = {
   is?: Prisma.tecnicaturasWhereInput
   isNot?: Prisma.tecnicaturasWhereInput
+}
+
+export type StringFieldUpdateOperationsInput = {
+  set?: string
+}
+
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type tecnicaturasCreateNestedOneWithoutUsersInput = {
+  create?: Prisma.XOR<Prisma.tecnicaturasCreateWithoutUsersInput, Prisma.tecnicaturasUncheckedCreateWithoutUsersInput>
+  connectOrCreate?: Prisma.tecnicaturasCreateOrConnectWithoutUsersInput
+  connect?: Prisma.tecnicaturasWhereUniqueInput
+}
+
+export type tecnicaturasUpdateOneWithoutUsersNestedInput = {
+  create?: Prisma.XOR<Prisma.tecnicaturasCreateWithoutUsersInput, Prisma.tecnicaturasUncheckedCreateWithoutUsersInput>
+  connectOrCreate?: Prisma.tecnicaturasCreateOrConnectWithoutUsersInput
+  upsert?: Prisma.tecnicaturasUpsertWithoutUsersInput
+  disconnect?: Prisma.tecnicaturasWhereInput | boolean
+  delete?: Prisma.tecnicaturasWhereInput | boolean
+  connect?: Prisma.tecnicaturasWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tecnicaturasUpdateToOneWithWhereWithoutUsersInput, Prisma.tecnicaturasUpdateWithoutUsersInput>, Prisma.tecnicaturasUncheckedUpdateWithoutUsersInput>
 }
 
 export type tecnicaturasCreateNestedOneWithoutTesisInput = {
@@ -360,70 +390,7 @@ export type tecnicaturasUpdateOneRequiredWithoutTesisNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.tecnicaturasUpdateToOneWithWhereWithoutTesisInput, Prisma.tecnicaturasUpdateWithoutTesisInput>, Prisma.tecnicaturasUncheckedUpdateWithoutTesisInput>
 }
 
-export type tecnicaturasCreateNestedOneWithoutUsersInput = {
-  create?: Prisma.XOR<Prisma.tecnicaturasCreateWithoutUsersInput, Prisma.tecnicaturasUncheckedCreateWithoutUsersInput>
-  connectOrCreate?: Prisma.tecnicaturasCreateOrConnectWithoutUsersInput
-  connect?: Prisma.tecnicaturasWhereUniqueInput
-}
-
-export type tecnicaturasUpdateOneRequiredWithoutUsersNestedInput = {
-  create?: Prisma.XOR<Prisma.tecnicaturasCreateWithoutUsersInput, Prisma.tecnicaturasUncheckedCreateWithoutUsersInput>
-  connectOrCreate?: Prisma.tecnicaturasCreateOrConnectWithoutUsersInput
-  upsert?: Prisma.tecnicaturasUpsertWithoutUsersInput
-  connect?: Prisma.tecnicaturasWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.tecnicaturasUpdateToOneWithWhereWithoutUsersInput, Prisma.tecnicaturasUpdateWithoutUsersInput>, Prisma.tecnicaturasUncheckedUpdateWithoutUsersInput>
-}
-
-export type tecnicaturasCreateWithoutTesisInput = {
-  id: number
-  nombre: string
-  descripcion: string
-  imagen_url: string
-  users?: Prisma.usersCreateNestedManyWithoutTecnicaturasInput
-}
-
-export type tecnicaturasUncheckedCreateWithoutTesisInput = {
-  id: number
-  nombre: string
-  descripcion: string
-  imagen_url: string
-  users?: Prisma.usersUncheckedCreateNestedManyWithoutTecnicaturasInput
-}
-
-export type tecnicaturasCreateOrConnectWithoutTesisInput = {
-  where: Prisma.tecnicaturasWhereUniqueInput
-  create: Prisma.XOR<Prisma.tecnicaturasCreateWithoutTesisInput, Prisma.tecnicaturasUncheckedCreateWithoutTesisInput>
-}
-
-export type tecnicaturasUpsertWithoutTesisInput = {
-  update: Prisma.XOR<Prisma.tecnicaturasUpdateWithoutTesisInput, Prisma.tecnicaturasUncheckedUpdateWithoutTesisInput>
-  create: Prisma.XOR<Prisma.tecnicaturasCreateWithoutTesisInput, Prisma.tecnicaturasUncheckedCreateWithoutTesisInput>
-  where?: Prisma.tecnicaturasWhereInput
-}
-
-export type tecnicaturasUpdateToOneWithWhereWithoutTesisInput = {
-  where?: Prisma.tecnicaturasWhereInput
-  data: Prisma.XOR<Prisma.tecnicaturasUpdateWithoutTesisInput, Prisma.tecnicaturasUncheckedUpdateWithoutTesisInput>
-}
-
-export type tecnicaturasUpdateWithoutTesisInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  descripcion?: Prisma.StringFieldUpdateOperationsInput | string
-  imagen_url?: Prisma.StringFieldUpdateOperationsInput | string
-  users?: Prisma.usersUpdateManyWithoutTecnicaturasNestedInput
-}
-
-export type tecnicaturasUncheckedUpdateWithoutTesisInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  descripcion?: Prisma.StringFieldUpdateOperationsInput | string
-  imagen_url?: Prisma.StringFieldUpdateOperationsInput | string
-  users?: Prisma.usersUncheckedUpdateManyWithoutTecnicaturasNestedInput
-}
-
 export type tecnicaturasCreateWithoutUsersInput = {
-  id: number
   nombre: string
   descripcion: string
   imagen_url: string
@@ -431,7 +398,7 @@ export type tecnicaturasCreateWithoutUsersInput = {
 }
 
 export type tecnicaturasUncheckedCreateWithoutUsersInput = {
-  id: number
+  id?: number
   nombre: string
   descripcion: string
   imagen_url: string
@@ -455,7 +422,6 @@ export type tecnicaturasUpdateToOneWithWhereWithoutUsersInput = {
 }
 
 export type tecnicaturasUpdateWithoutUsersInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   descripcion?: Prisma.StringFieldUpdateOperationsInput | string
   imagen_url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -468,6 +434,52 @@ export type tecnicaturasUncheckedUpdateWithoutUsersInput = {
   descripcion?: Prisma.StringFieldUpdateOperationsInput | string
   imagen_url?: Prisma.StringFieldUpdateOperationsInput | string
   tesis?: Prisma.tesisUncheckedUpdateManyWithoutTecnicaturasNestedInput
+}
+
+export type tecnicaturasCreateWithoutTesisInput = {
+  nombre: string
+  descripcion: string
+  imagen_url: string
+  users?: Prisma.usersCreateNestedManyWithoutTecnicaturasInput
+}
+
+export type tecnicaturasUncheckedCreateWithoutTesisInput = {
+  id?: number
+  nombre: string
+  descripcion: string
+  imagen_url: string
+  users?: Prisma.usersUncheckedCreateNestedManyWithoutTecnicaturasInput
+}
+
+export type tecnicaturasCreateOrConnectWithoutTesisInput = {
+  where: Prisma.tecnicaturasWhereUniqueInput
+  create: Prisma.XOR<Prisma.tecnicaturasCreateWithoutTesisInput, Prisma.tecnicaturasUncheckedCreateWithoutTesisInput>
+}
+
+export type tecnicaturasUpsertWithoutTesisInput = {
+  update: Prisma.XOR<Prisma.tecnicaturasUpdateWithoutTesisInput, Prisma.tecnicaturasUncheckedUpdateWithoutTesisInput>
+  create: Prisma.XOR<Prisma.tecnicaturasCreateWithoutTesisInput, Prisma.tecnicaturasUncheckedCreateWithoutTesisInput>
+  where?: Prisma.tecnicaturasWhereInput
+}
+
+export type tecnicaturasUpdateToOneWithWhereWithoutTesisInput = {
+  where?: Prisma.tecnicaturasWhereInput
+  data: Prisma.XOR<Prisma.tecnicaturasUpdateWithoutTesisInput, Prisma.tecnicaturasUncheckedUpdateWithoutTesisInput>
+}
+
+export type tecnicaturasUpdateWithoutTesisInput = {
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  descripcion?: Prisma.StringFieldUpdateOperationsInput | string
+  imagen_url?: Prisma.StringFieldUpdateOperationsInput | string
+  users?: Prisma.usersUpdateManyWithoutTecnicaturasNestedInput
+}
+
+export type tecnicaturasUncheckedUpdateWithoutTesisInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  descripcion?: Prisma.StringFieldUpdateOperationsInput | string
+  imagen_url?: Prisma.StringFieldUpdateOperationsInput | string
+  users?: Prisma.usersUncheckedUpdateManyWithoutTecnicaturasNestedInput
 }
 
 

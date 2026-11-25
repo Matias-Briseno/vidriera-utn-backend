@@ -28,29 +28,29 @@ export type AggregateTesis_participantes = {
 
 export type Tesis_participantesAvgAggregateOutputType = {
   tesis_id: number | null
-  persona_id: number | null
+  user_id: number | null
 }
 
 export type Tesis_participantesSumAggregateOutputType = {
   tesis_id: number | null
-  persona_id: number | null
+  user_id: number | null
 }
 
 export type Tesis_participantesMinAggregateOutputType = {
   tesis_id: number | null
-  persona_id: number | null
-  rol_participacion: string | null
+  user_id: number | null
+  rol_participacion: $Enums.rol_participacion | null
 }
 
 export type Tesis_participantesMaxAggregateOutputType = {
   tesis_id: number | null
-  persona_id: number | null
-  rol_participacion: string | null
+  user_id: number | null
+  rol_participacion: $Enums.rol_participacion | null
 }
 
 export type Tesis_participantesCountAggregateOutputType = {
   tesis_id: number
-  persona_id: number
+  user_id: number
   rol_participacion: number
   _all: number
 }
@@ -58,29 +58,29 @@ export type Tesis_participantesCountAggregateOutputType = {
 
 export type Tesis_participantesAvgAggregateInputType = {
   tesis_id?: true
-  persona_id?: true
+  user_id?: true
 }
 
 export type Tesis_participantesSumAggregateInputType = {
   tesis_id?: true
-  persona_id?: true
+  user_id?: true
 }
 
 export type Tesis_participantesMinAggregateInputType = {
   tesis_id?: true
-  persona_id?: true
+  user_id?: true
   rol_participacion?: true
 }
 
 export type Tesis_participantesMaxAggregateInputType = {
   tesis_id?: true
-  persona_id?: true
+  user_id?: true
   rol_participacion?: true
 }
 
 export type Tesis_participantesCountAggregateInputType = {
   tesis_id?: true
-  persona_id?: true
+  user_id?: true
   rol_participacion?: true
   _all?: true
 }
@@ -173,8 +173,8 @@ export type tesis_participantesGroupByArgs<ExtArgs extends runtime.Types.Extensi
 
 export type Tesis_participantesGroupByOutputType = {
   tesis_id: number
-  persona_id: number
-  rol_participacion: string
+  user_id: number
+  rol_participacion: $Enums.rol_participacion
   _count: Tesis_participantesCountAggregateOutputType | null
   _avg: Tesis_participantesAvgAggregateOutputType | null
   _sum: Tesis_participantesSumAggregateOutputType | null
@@ -202,35 +202,35 @@ export type tesis_participantesWhereInput = {
   OR?: Prisma.tesis_participantesWhereInput[]
   NOT?: Prisma.tesis_participantesWhereInput | Prisma.tesis_participantesWhereInput[]
   tesis_id?: Prisma.IntFilter<"tesis_participantes"> | number
-  persona_id?: Prisma.IntFilter<"tesis_participantes"> | number
-  rol_participacion?: Prisma.StringFilter<"tesis_participantes"> | string
-  personas?: Prisma.XOR<Prisma.PersonasScalarRelationFilter, Prisma.personasWhereInput>
+  user_id?: Prisma.IntFilter<"tesis_participantes"> | number
+  rol_participacion?: Prisma.Enumrol_participacionFilter<"tesis_participantes"> | $Enums.rol_participacion
   tesis?: Prisma.XOR<Prisma.TesisScalarRelationFilter, Prisma.tesisWhereInput>
+  users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
 }
 
 export type tesis_participantesOrderByWithRelationInput = {
   tesis_id?: Prisma.SortOrder
-  persona_id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   rol_participacion?: Prisma.SortOrder
-  personas?: Prisma.personasOrderByWithRelationInput
   tesis?: Prisma.tesisOrderByWithRelationInput
+  users?: Prisma.usersOrderByWithRelationInput
 }
 
 export type tesis_participantesWhereUniqueInput = Prisma.AtLeast<{
-  tesis_id_persona_id?: Prisma.tesis_participantesTesis_idPersona_idCompoundUniqueInput
+  tesis_id_user_id?: Prisma.tesis_participantesTesis_idUser_idCompoundUniqueInput
   AND?: Prisma.tesis_participantesWhereInput | Prisma.tesis_participantesWhereInput[]
   OR?: Prisma.tesis_participantesWhereInput[]
   NOT?: Prisma.tesis_participantesWhereInput | Prisma.tesis_participantesWhereInput[]
   tesis_id?: Prisma.IntFilter<"tesis_participantes"> | number
-  persona_id?: Prisma.IntFilter<"tesis_participantes"> | number
-  rol_participacion?: Prisma.StringFilter<"tesis_participantes"> | string
-  personas?: Prisma.XOR<Prisma.PersonasScalarRelationFilter, Prisma.personasWhereInput>
+  user_id?: Prisma.IntFilter<"tesis_participantes"> | number
+  rol_participacion?: Prisma.Enumrol_participacionFilter<"tesis_participantes"> | $Enums.rol_participacion
   tesis?: Prisma.XOR<Prisma.TesisScalarRelationFilter, Prisma.tesisWhereInput>
-}, "tesis_id_persona_id">
+  users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
+}, "tesis_id_user_id">
 
 export type tesis_participantesOrderByWithAggregationInput = {
   tesis_id?: Prisma.SortOrder
-  persona_id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   rol_participacion?: Prisma.SortOrder
   _count?: Prisma.tesis_participantesCountOrderByAggregateInput
   _avg?: Prisma.tesis_participantesAvgOrderByAggregateInput
@@ -244,48 +244,48 @@ export type tesis_participantesScalarWhereWithAggregatesInput = {
   OR?: Prisma.tesis_participantesScalarWhereWithAggregatesInput[]
   NOT?: Prisma.tesis_participantesScalarWhereWithAggregatesInput | Prisma.tesis_participantesScalarWhereWithAggregatesInput[]
   tesis_id?: Prisma.IntWithAggregatesFilter<"tesis_participantes"> | number
-  persona_id?: Prisma.IntWithAggregatesFilter<"tesis_participantes"> | number
-  rol_participacion?: Prisma.StringWithAggregatesFilter<"tesis_participantes"> | string
+  user_id?: Prisma.IntWithAggregatesFilter<"tesis_participantes"> | number
+  rol_participacion?: Prisma.Enumrol_participacionWithAggregatesFilter<"tesis_participantes"> | $Enums.rol_participacion
 }
 
 export type tesis_participantesCreateInput = {
-  rol_participacion?: string
-  personas: Prisma.personasCreateNestedOneWithoutTesis_participantesInput
+  rol_participacion?: $Enums.rol_participacion
   tesis: Prisma.tesisCreateNestedOneWithoutTesis_participantesInput
+  users: Prisma.usersCreateNestedOneWithoutTesis_participantesInput
 }
 
 export type tesis_participantesUncheckedCreateInput = {
   tesis_id: number
-  persona_id: number
-  rol_participacion?: string
+  user_id: number
+  rol_participacion?: $Enums.rol_participacion
 }
 
 export type tesis_participantesUpdateInput = {
-  rol_participacion?: Prisma.StringFieldUpdateOperationsInput | string
-  personas?: Prisma.personasUpdateOneRequiredWithoutTesis_participantesNestedInput
+  rol_participacion?: Prisma.Enumrol_participacionFieldUpdateOperationsInput | $Enums.rol_participacion
   tesis?: Prisma.tesisUpdateOneRequiredWithoutTesis_participantesNestedInput
+  users?: Prisma.usersUpdateOneRequiredWithoutTesis_participantesNestedInput
 }
 
 export type tesis_participantesUncheckedUpdateInput = {
   tesis_id?: Prisma.IntFieldUpdateOperationsInput | number
-  persona_id?: Prisma.IntFieldUpdateOperationsInput | number
-  rol_participacion?: Prisma.StringFieldUpdateOperationsInput | string
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  rol_participacion?: Prisma.Enumrol_participacionFieldUpdateOperationsInput | $Enums.rol_participacion
 }
 
 export type tesis_participantesCreateManyInput = {
   tesis_id: number
-  persona_id: number
-  rol_participacion?: string
+  user_id: number
+  rol_participacion?: $Enums.rol_participacion
 }
 
 export type tesis_participantesUpdateManyMutationInput = {
-  rol_participacion?: Prisma.StringFieldUpdateOperationsInput | string
+  rol_participacion?: Prisma.Enumrol_participacionFieldUpdateOperationsInput | $Enums.rol_participacion
 }
 
 export type tesis_participantesUncheckedUpdateManyInput = {
   tesis_id?: Prisma.IntFieldUpdateOperationsInput | number
-  persona_id?: Prisma.IntFieldUpdateOperationsInput | number
-  rol_participacion?: Prisma.StringFieldUpdateOperationsInput | string
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  rol_participacion?: Prisma.Enumrol_participacionFieldUpdateOperationsInput | $Enums.rol_participacion
 }
 
 export type Tesis_participantesListRelationFilter = {
@@ -298,78 +298,78 @@ export type tesis_participantesOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type tesis_participantesTesis_idPersona_idCompoundUniqueInput = {
+export type tesis_participantesTesis_idUser_idCompoundUniqueInput = {
   tesis_id: number
-  persona_id: number
+  user_id: number
 }
 
 export type tesis_participantesCountOrderByAggregateInput = {
   tesis_id?: Prisma.SortOrder
-  persona_id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   rol_participacion?: Prisma.SortOrder
 }
 
 export type tesis_participantesAvgOrderByAggregateInput = {
   tesis_id?: Prisma.SortOrder
-  persona_id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
 }
 
 export type tesis_participantesMaxOrderByAggregateInput = {
   tesis_id?: Prisma.SortOrder
-  persona_id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   rol_participacion?: Prisma.SortOrder
 }
 
 export type tesis_participantesMinOrderByAggregateInput = {
   tesis_id?: Prisma.SortOrder
-  persona_id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   rol_participacion?: Prisma.SortOrder
 }
 
 export type tesis_participantesSumOrderByAggregateInput = {
   tesis_id?: Prisma.SortOrder
-  persona_id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
 }
 
-export type tesis_participantesCreateNestedManyWithoutPersonasInput = {
-  create?: Prisma.XOR<Prisma.tesis_participantesCreateWithoutPersonasInput, Prisma.tesis_participantesUncheckedCreateWithoutPersonasInput> | Prisma.tesis_participantesCreateWithoutPersonasInput[] | Prisma.tesis_participantesUncheckedCreateWithoutPersonasInput[]
-  connectOrCreate?: Prisma.tesis_participantesCreateOrConnectWithoutPersonasInput | Prisma.tesis_participantesCreateOrConnectWithoutPersonasInput[]
-  createMany?: Prisma.tesis_participantesCreateManyPersonasInputEnvelope
+export type tesis_participantesCreateNestedManyWithoutUsersInput = {
+  create?: Prisma.XOR<Prisma.tesis_participantesCreateWithoutUsersInput, Prisma.tesis_participantesUncheckedCreateWithoutUsersInput> | Prisma.tesis_participantesCreateWithoutUsersInput[] | Prisma.tesis_participantesUncheckedCreateWithoutUsersInput[]
+  connectOrCreate?: Prisma.tesis_participantesCreateOrConnectWithoutUsersInput | Prisma.tesis_participantesCreateOrConnectWithoutUsersInput[]
+  createMany?: Prisma.tesis_participantesCreateManyUsersInputEnvelope
   connect?: Prisma.tesis_participantesWhereUniqueInput | Prisma.tesis_participantesWhereUniqueInput[]
 }
 
-export type tesis_participantesUncheckedCreateNestedManyWithoutPersonasInput = {
-  create?: Prisma.XOR<Prisma.tesis_participantesCreateWithoutPersonasInput, Prisma.tesis_participantesUncheckedCreateWithoutPersonasInput> | Prisma.tesis_participantesCreateWithoutPersonasInput[] | Prisma.tesis_participantesUncheckedCreateWithoutPersonasInput[]
-  connectOrCreate?: Prisma.tesis_participantesCreateOrConnectWithoutPersonasInput | Prisma.tesis_participantesCreateOrConnectWithoutPersonasInput[]
-  createMany?: Prisma.tesis_participantesCreateManyPersonasInputEnvelope
+export type tesis_participantesUncheckedCreateNestedManyWithoutUsersInput = {
+  create?: Prisma.XOR<Prisma.tesis_participantesCreateWithoutUsersInput, Prisma.tesis_participantesUncheckedCreateWithoutUsersInput> | Prisma.tesis_participantesCreateWithoutUsersInput[] | Prisma.tesis_participantesUncheckedCreateWithoutUsersInput[]
+  connectOrCreate?: Prisma.tesis_participantesCreateOrConnectWithoutUsersInput | Prisma.tesis_participantesCreateOrConnectWithoutUsersInput[]
+  createMany?: Prisma.tesis_participantesCreateManyUsersInputEnvelope
   connect?: Prisma.tesis_participantesWhereUniqueInput | Prisma.tesis_participantesWhereUniqueInput[]
 }
 
-export type tesis_participantesUpdateManyWithoutPersonasNestedInput = {
-  create?: Prisma.XOR<Prisma.tesis_participantesCreateWithoutPersonasInput, Prisma.tesis_participantesUncheckedCreateWithoutPersonasInput> | Prisma.tesis_participantesCreateWithoutPersonasInput[] | Prisma.tesis_participantesUncheckedCreateWithoutPersonasInput[]
-  connectOrCreate?: Prisma.tesis_participantesCreateOrConnectWithoutPersonasInput | Prisma.tesis_participantesCreateOrConnectWithoutPersonasInput[]
-  upsert?: Prisma.tesis_participantesUpsertWithWhereUniqueWithoutPersonasInput | Prisma.tesis_participantesUpsertWithWhereUniqueWithoutPersonasInput[]
-  createMany?: Prisma.tesis_participantesCreateManyPersonasInputEnvelope
+export type tesis_participantesUpdateManyWithoutUsersNestedInput = {
+  create?: Prisma.XOR<Prisma.tesis_participantesCreateWithoutUsersInput, Prisma.tesis_participantesUncheckedCreateWithoutUsersInput> | Prisma.tesis_participantesCreateWithoutUsersInput[] | Prisma.tesis_participantesUncheckedCreateWithoutUsersInput[]
+  connectOrCreate?: Prisma.tesis_participantesCreateOrConnectWithoutUsersInput | Prisma.tesis_participantesCreateOrConnectWithoutUsersInput[]
+  upsert?: Prisma.tesis_participantesUpsertWithWhereUniqueWithoutUsersInput | Prisma.tesis_participantesUpsertWithWhereUniqueWithoutUsersInput[]
+  createMany?: Prisma.tesis_participantesCreateManyUsersInputEnvelope
   set?: Prisma.tesis_participantesWhereUniqueInput | Prisma.tesis_participantesWhereUniqueInput[]
   disconnect?: Prisma.tesis_participantesWhereUniqueInput | Prisma.tesis_participantesWhereUniqueInput[]
   delete?: Prisma.tesis_participantesWhereUniqueInput | Prisma.tesis_participantesWhereUniqueInput[]
   connect?: Prisma.tesis_participantesWhereUniqueInput | Prisma.tesis_participantesWhereUniqueInput[]
-  update?: Prisma.tesis_participantesUpdateWithWhereUniqueWithoutPersonasInput | Prisma.tesis_participantesUpdateWithWhereUniqueWithoutPersonasInput[]
-  updateMany?: Prisma.tesis_participantesUpdateManyWithWhereWithoutPersonasInput | Prisma.tesis_participantesUpdateManyWithWhereWithoutPersonasInput[]
+  update?: Prisma.tesis_participantesUpdateWithWhereUniqueWithoutUsersInput | Prisma.tesis_participantesUpdateWithWhereUniqueWithoutUsersInput[]
+  updateMany?: Prisma.tesis_participantesUpdateManyWithWhereWithoutUsersInput | Prisma.tesis_participantesUpdateManyWithWhereWithoutUsersInput[]
   deleteMany?: Prisma.tesis_participantesScalarWhereInput | Prisma.tesis_participantesScalarWhereInput[]
 }
 
-export type tesis_participantesUncheckedUpdateManyWithoutPersonasNestedInput = {
-  create?: Prisma.XOR<Prisma.tesis_participantesCreateWithoutPersonasInput, Prisma.tesis_participantesUncheckedCreateWithoutPersonasInput> | Prisma.tesis_participantesCreateWithoutPersonasInput[] | Prisma.tesis_participantesUncheckedCreateWithoutPersonasInput[]
-  connectOrCreate?: Prisma.tesis_participantesCreateOrConnectWithoutPersonasInput | Prisma.tesis_participantesCreateOrConnectWithoutPersonasInput[]
-  upsert?: Prisma.tesis_participantesUpsertWithWhereUniqueWithoutPersonasInput | Prisma.tesis_participantesUpsertWithWhereUniqueWithoutPersonasInput[]
-  createMany?: Prisma.tesis_participantesCreateManyPersonasInputEnvelope
+export type tesis_participantesUncheckedUpdateManyWithoutUsersNestedInput = {
+  create?: Prisma.XOR<Prisma.tesis_participantesCreateWithoutUsersInput, Prisma.tesis_participantesUncheckedCreateWithoutUsersInput> | Prisma.tesis_participantesCreateWithoutUsersInput[] | Prisma.tesis_participantesUncheckedCreateWithoutUsersInput[]
+  connectOrCreate?: Prisma.tesis_participantesCreateOrConnectWithoutUsersInput | Prisma.tesis_participantesCreateOrConnectWithoutUsersInput[]
+  upsert?: Prisma.tesis_participantesUpsertWithWhereUniqueWithoutUsersInput | Prisma.tesis_participantesUpsertWithWhereUniqueWithoutUsersInput[]
+  createMany?: Prisma.tesis_participantesCreateManyUsersInputEnvelope
   set?: Prisma.tesis_participantesWhereUniqueInput | Prisma.tesis_participantesWhereUniqueInput[]
   disconnect?: Prisma.tesis_participantesWhereUniqueInput | Prisma.tesis_participantesWhereUniqueInput[]
   delete?: Prisma.tesis_participantesWhereUniqueInput | Prisma.tesis_participantesWhereUniqueInput[]
   connect?: Prisma.tesis_participantesWhereUniqueInput | Prisma.tesis_participantesWhereUniqueInput[]
-  update?: Prisma.tesis_participantesUpdateWithWhereUniqueWithoutPersonasInput | Prisma.tesis_participantesUpdateWithWhereUniqueWithoutPersonasInput[]
-  updateMany?: Prisma.tesis_participantesUpdateManyWithWhereWithoutPersonasInput | Prisma.tesis_participantesUpdateManyWithWhereWithoutPersonasInput[]
+  update?: Prisma.tesis_participantesUpdateWithWhereUniqueWithoutUsersInput | Prisma.tesis_participantesUpdateWithWhereUniqueWithoutUsersInput[]
+  updateMany?: Prisma.tesis_participantesUpdateManyWithWhereWithoutUsersInput | Prisma.tesis_participantesUpdateManyWithWhereWithoutUsersInput[]
   deleteMany?: Prisma.tesis_participantesScalarWhereInput | Prisma.tesis_participantesScalarWhereInput[]
 }
 
@@ -415,40 +415,44 @@ export type tesis_participantesUncheckedUpdateManyWithoutTesisNestedInput = {
   deleteMany?: Prisma.tesis_participantesScalarWhereInput | Prisma.tesis_participantesScalarWhereInput[]
 }
 
-export type tesis_participantesCreateWithoutPersonasInput = {
-  rol_participacion?: string
+export type Enumrol_participacionFieldUpdateOperationsInput = {
+  set?: $Enums.rol_participacion
+}
+
+export type tesis_participantesCreateWithoutUsersInput = {
+  rol_participacion?: $Enums.rol_participacion
   tesis: Prisma.tesisCreateNestedOneWithoutTesis_participantesInput
 }
 
-export type tesis_participantesUncheckedCreateWithoutPersonasInput = {
+export type tesis_participantesUncheckedCreateWithoutUsersInput = {
   tesis_id: number
-  rol_participacion?: string
+  rol_participacion?: $Enums.rol_participacion
 }
 
-export type tesis_participantesCreateOrConnectWithoutPersonasInput = {
+export type tesis_participantesCreateOrConnectWithoutUsersInput = {
   where: Prisma.tesis_participantesWhereUniqueInput
-  create: Prisma.XOR<Prisma.tesis_participantesCreateWithoutPersonasInput, Prisma.tesis_participantesUncheckedCreateWithoutPersonasInput>
+  create: Prisma.XOR<Prisma.tesis_participantesCreateWithoutUsersInput, Prisma.tesis_participantesUncheckedCreateWithoutUsersInput>
 }
 
-export type tesis_participantesCreateManyPersonasInputEnvelope = {
-  data: Prisma.tesis_participantesCreateManyPersonasInput | Prisma.tesis_participantesCreateManyPersonasInput[]
+export type tesis_participantesCreateManyUsersInputEnvelope = {
+  data: Prisma.tesis_participantesCreateManyUsersInput | Prisma.tesis_participantesCreateManyUsersInput[]
   skipDuplicates?: boolean
 }
 
-export type tesis_participantesUpsertWithWhereUniqueWithoutPersonasInput = {
+export type tesis_participantesUpsertWithWhereUniqueWithoutUsersInput = {
   where: Prisma.tesis_participantesWhereUniqueInput
-  update: Prisma.XOR<Prisma.tesis_participantesUpdateWithoutPersonasInput, Prisma.tesis_participantesUncheckedUpdateWithoutPersonasInput>
-  create: Prisma.XOR<Prisma.tesis_participantesCreateWithoutPersonasInput, Prisma.tesis_participantesUncheckedCreateWithoutPersonasInput>
+  update: Prisma.XOR<Prisma.tesis_participantesUpdateWithoutUsersInput, Prisma.tesis_participantesUncheckedUpdateWithoutUsersInput>
+  create: Prisma.XOR<Prisma.tesis_participantesCreateWithoutUsersInput, Prisma.tesis_participantesUncheckedCreateWithoutUsersInput>
 }
 
-export type tesis_participantesUpdateWithWhereUniqueWithoutPersonasInput = {
+export type tesis_participantesUpdateWithWhereUniqueWithoutUsersInput = {
   where: Prisma.tesis_participantesWhereUniqueInput
-  data: Prisma.XOR<Prisma.tesis_participantesUpdateWithoutPersonasInput, Prisma.tesis_participantesUncheckedUpdateWithoutPersonasInput>
+  data: Prisma.XOR<Prisma.tesis_participantesUpdateWithoutUsersInput, Prisma.tesis_participantesUncheckedUpdateWithoutUsersInput>
 }
 
-export type tesis_participantesUpdateManyWithWhereWithoutPersonasInput = {
+export type tesis_participantesUpdateManyWithWhereWithoutUsersInput = {
   where: Prisma.tesis_participantesScalarWhereInput
-  data: Prisma.XOR<Prisma.tesis_participantesUpdateManyMutationInput, Prisma.tesis_participantesUncheckedUpdateManyWithoutPersonasInput>
+  data: Prisma.XOR<Prisma.tesis_participantesUpdateManyMutationInput, Prisma.tesis_participantesUncheckedUpdateManyWithoutUsersInput>
 }
 
 export type tesis_participantesScalarWhereInput = {
@@ -456,18 +460,18 @@ export type tesis_participantesScalarWhereInput = {
   OR?: Prisma.tesis_participantesScalarWhereInput[]
   NOT?: Prisma.tesis_participantesScalarWhereInput | Prisma.tesis_participantesScalarWhereInput[]
   tesis_id?: Prisma.IntFilter<"tesis_participantes"> | number
-  persona_id?: Prisma.IntFilter<"tesis_participantes"> | number
-  rol_participacion?: Prisma.StringFilter<"tesis_participantes"> | string
+  user_id?: Prisma.IntFilter<"tesis_participantes"> | number
+  rol_participacion?: Prisma.Enumrol_participacionFilter<"tesis_participantes"> | $Enums.rol_participacion
 }
 
 export type tesis_participantesCreateWithoutTesisInput = {
-  rol_participacion?: string
-  personas: Prisma.personasCreateNestedOneWithoutTesis_participantesInput
+  rol_participacion?: $Enums.rol_participacion
+  users: Prisma.usersCreateNestedOneWithoutTesis_participantesInput
 }
 
 export type tesis_participantesUncheckedCreateWithoutTesisInput = {
-  persona_id: number
-  rol_participacion?: string
+  user_id: number
+  rol_participacion?: $Enums.rol_participacion
 }
 
 export type tesis_participantesCreateOrConnectWithoutTesisInput = {
@@ -496,102 +500,102 @@ export type tesis_participantesUpdateManyWithWhereWithoutTesisInput = {
   data: Prisma.XOR<Prisma.tesis_participantesUpdateManyMutationInput, Prisma.tesis_participantesUncheckedUpdateManyWithoutTesisInput>
 }
 
-export type tesis_participantesCreateManyPersonasInput = {
+export type tesis_participantesCreateManyUsersInput = {
   tesis_id: number
-  rol_participacion?: string
+  rol_participacion?: $Enums.rol_participacion
 }
 
-export type tesis_participantesUpdateWithoutPersonasInput = {
-  rol_participacion?: Prisma.StringFieldUpdateOperationsInput | string
+export type tesis_participantesUpdateWithoutUsersInput = {
+  rol_participacion?: Prisma.Enumrol_participacionFieldUpdateOperationsInput | $Enums.rol_participacion
   tesis?: Prisma.tesisUpdateOneRequiredWithoutTesis_participantesNestedInput
 }
 
-export type tesis_participantesUncheckedUpdateWithoutPersonasInput = {
+export type tesis_participantesUncheckedUpdateWithoutUsersInput = {
   tesis_id?: Prisma.IntFieldUpdateOperationsInput | number
-  rol_participacion?: Prisma.StringFieldUpdateOperationsInput | string
+  rol_participacion?: Prisma.Enumrol_participacionFieldUpdateOperationsInput | $Enums.rol_participacion
 }
 
-export type tesis_participantesUncheckedUpdateManyWithoutPersonasInput = {
+export type tesis_participantesUncheckedUpdateManyWithoutUsersInput = {
   tesis_id?: Prisma.IntFieldUpdateOperationsInput | number
-  rol_participacion?: Prisma.StringFieldUpdateOperationsInput | string
+  rol_participacion?: Prisma.Enumrol_participacionFieldUpdateOperationsInput | $Enums.rol_participacion
 }
 
 export type tesis_participantesCreateManyTesisInput = {
-  persona_id: number
-  rol_participacion?: string
+  user_id: number
+  rol_participacion?: $Enums.rol_participacion
 }
 
 export type tesis_participantesUpdateWithoutTesisInput = {
-  rol_participacion?: Prisma.StringFieldUpdateOperationsInput | string
-  personas?: Prisma.personasUpdateOneRequiredWithoutTesis_participantesNestedInput
+  rol_participacion?: Prisma.Enumrol_participacionFieldUpdateOperationsInput | $Enums.rol_participacion
+  users?: Prisma.usersUpdateOneRequiredWithoutTesis_participantesNestedInput
 }
 
 export type tesis_participantesUncheckedUpdateWithoutTesisInput = {
-  persona_id?: Prisma.IntFieldUpdateOperationsInput | number
-  rol_participacion?: Prisma.StringFieldUpdateOperationsInput | string
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  rol_participacion?: Prisma.Enumrol_participacionFieldUpdateOperationsInput | $Enums.rol_participacion
 }
 
 export type tesis_participantesUncheckedUpdateManyWithoutTesisInput = {
-  persona_id?: Prisma.IntFieldUpdateOperationsInput | number
-  rol_participacion?: Prisma.StringFieldUpdateOperationsInput | string
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  rol_participacion?: Prisma.Enumrol_participacionFieldUpdateOperationsInput | $Enums.rol_participacion
 }
 
 
 
 export type tesis_participantesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   tesis_id?: boolean
-  persona_id?: boolean
+  user_id?: boolean
   rol_participacion?: boolean
-  personas?: boolean | Prisma.personasDefaultArgs<ExtArgs>
   tesis?: boolean | Prisma.tesisDefaultArgs<ExtArgs>
+  users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tesis_participantes"]>
 
 export type tesis_participantesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   tesis_id?: boolean
-  persona_id?: boolean
+  user_id?: boolean
   rol_participacion?: boolean
-  personas?: boolean | Prisma.personasDefaultArgs<ExtArgs>
   tesis?: boolean | Prisma.tesisDefaultArgs<ExtArgs>
+  users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tesis_participantes"]>
 
 export type tesis_participantesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   tesis_id?: boolean
-  persona_id?: boolean
+  user_id?: boolean
   rol_participacion?: boolean
-  personas?: boolean | Prisma.personasDefaultArgs<ExtArgs>
   tesis?: boolean | Prisma.tesisDefaultArgs<ExtArgs>
+  users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tesis_participantes"]>
 
 export type tesis_participantesSelectScalar = {
   tesis_id?: boolean
-  persona_id?: boolean
+  user_id?: boolean
   rol_participacion?: boolean
 }
 
-export type tesis_participantesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"tesis_id" | "persona_id" | "rol_participacion", ExtArgs["result"]["tesis_participantes"]>
+export type tesis_participantesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"tesis_id" | "user_id" | "rol_participacion", ExtArgs["result"]["tesis_participantes"]>
 export type tesis_participantesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  personas?: boolean | Prisma.personasDefaultArgs<ExtArgs>
   tesis?: boolean | Prisma.tesisDefaultArgs<ExtArgs>
+  users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
 export type tesis_participantesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  personas?: boolean | Prisma.personasDefaultArgs<ExtArgs>
   tesis?: boolean | Prisma.tesisDefaultArgs<ExtArgs>
+  users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
 export type tesis_participantesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  personas?: boolean | Prisma.personasDefaultArgs<ExtArgs>
   tesis?: boolean | Prisma.tesisDefaultArgs<ExtArgs>
+  users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
 }
 
 export type $tesis_participantesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "tesis_participantes"
   objects: {
-    personas: Prisma.$personasPayload<ExtArgs>
     tesis: Prisma.$tesisPayload<ExtArgs>
+    users: Prisma.$usersPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     tesis_id: number
-    persona_id: number
-    rol_participacion: string
+    user_id: number
+    rol_participacion: $Enums.rol_participacion
   }, ExtArgs["result"]["tesis_participantes"]>
   composites: {}
 }
@@ -986,8 +990,8 @@ readonly fields: tesis_participantesFieldRefs;
  */
 export interface Prisma__tesis_participantesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  personas<T extends Prisma.personasDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.personasDefaultArgs<ExtArgs>>): Prisma.Prisma__personasClient<runtime.Types.Result.GetResult<Prisma.$personasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   tesis<T extends Prisma.tesisDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tesisDefaultArgs<ExtArgs>>): Prisma.Prisma__tesisClient<runtime.Types.Result.GetResult<Prisma.$tesisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  users<T extends Prisma.usersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usersDefaultArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1018,8 +1022,8 @@ export interface Prisma__tesis_participantesClient<T, Null = never, ExtArgs exte
  */
 export interface tesis_participantesFieldRefs {
   readonly tesis_id: Prisma.FieldRef<"tesis_participantes", 'Int'>
-  readonly persona_id: Prisma.FieldRef<"tesis_participantes", 'Int'>
-  readonly rol_participacion: Prisma.FieldRef<"tesis_participantes", 'String'>
+  readonly user_id: Prisma.FieldRef<"tesis_participantes", 'Int'>
+  readonly rol_participacion: Prisma.FieldRef<"tesis_participantes", 'rol_participacion'>
 }
     
 

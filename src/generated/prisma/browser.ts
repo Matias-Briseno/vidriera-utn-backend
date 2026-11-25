@@ -18,23 +18,23 @@ export { Prisma }
 export * as $Enums from './enums.js'
 export * from './enums.js';
 /**
- * Model personas
- * 
- */
-export type personas = Prisma.personasModel
-/**
  * Model tecnicaturas
  * 
  */
 export type tecnicaturas = Prisma.tecnicaturasModel
 /**
+ * Model users
+ * 
+ */
+export type users = Prisma.usersModel
+/**
  * Model tesis
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * 
  */
 export type tesis = Prisma.tesisModel
 /**
  * Model tesis_galeria
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * 
  */
 export type tesis_galeria = Prisma.tesis_galeriaModel
 /**
@@ -42,8 +42,3 @@ export type tesis_galeria = Prisma.tesis_galeriaModel
  * 
  */
 export type tesis_participantes = Prisma.tesis_participantesModel
-/**
- * Model users
- * 
- */
-export type users = Prisma.usersModel
